@@ -3,13 +3,13 @@ import heroimg1 from '../Assets/images/heroimg1.png'
 // import car1 from '../images/car1.jpg'
 import '../pages/Home.css'
 import carsData from '../Assets/data/cars'
-
 import CarCards from '../shared/Carcard';
 
 function Home() {
 
   return <>
   <main>
+  
   <div className="hero-section">
         <div className="img-section">
             <img src={heroimg1} alt="" className='img-hero-section' />
@@ -21,6 +21,7 @@ function Home() {
                 {carsData?.map((car) => (
                    <div key={car.id} className="w-50%"> 
                       <CarCards car={car} />
+                      
                     </div>
                   ))}
               </div>

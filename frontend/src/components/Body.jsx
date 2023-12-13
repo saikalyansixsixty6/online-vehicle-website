@@ -1,11 +1,12 @@
 import { createBrowserRouter,RouterProvider } from "react-router-dom"
 import Authentication from "./Authentication";
-import Home from "./Home";
+import Home from "../pages/Home";
 import {onAuthStateChanged } from "firebase/auth";
 import { useEffect } from "react";
 import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
+
 
 
 
@@ -53,6 +54,8 @@ const Body = () => {
 
   return (
     <div>
+
+       
        <RouterProvider router={appRouter}/>
 
      
