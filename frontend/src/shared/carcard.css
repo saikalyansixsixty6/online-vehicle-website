@@ -1,0 +1,43 @@
+.car_container{
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(231, 219, 219);
+    width: min-content;
+    
+    
+}
+
+.car_img img{
+    width: 500px ;
+    height: 180px;
+    
+}
+.car_info{
+    padding-top: 10px;
+}
+.car_info P{
+    padding-left: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: regular;
+
+}
+button{
+     width: 200px;
+    margin: 20px;
+     padding: 1px;
+     font-family: 'Open Sans', sans-serif;
+     font-size: 16px;
+     font-weight: regular;
+     
+     border: 1px solid rgb(195, 94, 136);
+     color: rgb(251, 135, 135);
+}
+
+
+
+
+
+
+
+
+
