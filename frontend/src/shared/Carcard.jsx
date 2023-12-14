@@ -13,7 +13,7 @@ const CarCard = ({car}) => {
         <Card className='car_box '>
             <div className='car_img '>
                 <img src={photo} alt='car-img' />
-                 {/* {featured  &&<span>Featured</span>} */}
+                 
             </div>
         </Card>
         <CardBody className='car_info'>
