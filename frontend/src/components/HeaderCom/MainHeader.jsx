@@ -3,7 +3,9 @@ import Ellips from '../../Assets/images/img.png'
 import { useState,useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass,faCaretDown,faUser,faComment,faAngleDown} from '@fortawesome/free-solid-svg-icons'
-function MainHeader() {
+
+const MainHeader = ()=> {
+  console.log('header working')
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [isSticky, setSticky] = useState(false);
 
@@ -22,6 +24,7 @@ function MainHeader() {
     };
   }, []);
   return <>
+  
   <div className={`${isSticky ? 'sticky' : ''}`}>
     <div className='container  mr-2 w-auto flex flex-wrap justify-between' >
       <div className="header flex flex-wrap">
@@ -32,7 +35,7 @@ function MainHeader() {
           <input type="text" placeholder='India' />
           <div className="search-icon">
           <FontAwesomeIcon icon={faMagnifyingGlass} className='search-icon-svg'/>
-          <FontAwesomeIcon icon={faCaretDown} className='search-icon-svg2 '/>
+          
           </div>
         </div>
       </div>
@@ -86,4 +89,4 @@ function MainHeader() {
   </>
 }
 
-export default MainHeader
+export default MainHeader;

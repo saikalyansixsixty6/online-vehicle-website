@@ -1,6 +1,6 @@
 import { createBrowserRouter,RouterProvider } from "react-router-dom"
 import Authentication from "./Authentication";
-import Home from "../pages/Home";
+import Layouts from "./layouts/layouts";
 import {onAuthStateChanged } from "firebase/auth";
 import { useEffect } from "react";
 import { auth } from "../utils/firebase";
@@ -22,7 +22,7 @@ const Body = () => {
      },
      {
         path:"/home",
-        element:<Home/>,
+        element:<Layouts/>,
      }
 
 

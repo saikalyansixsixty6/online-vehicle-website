@@ -24,19 +24,12 @@
       width: 44px;
       height: 30px;
       position: absolute;
-      margin-top: -40px;
-      margin-left: 4px;
+      margin-top: -37px;
+      margin-left: 46px;
       cursor: pointer;
   }
-  .search-icon-svg2{
-      width: 55px;
-      height: 44px;
-      position: absolute;
-      margin-top: -47px;
-      margin-left: 140px;
-      cursor: pointer;
+
   
-  }
   .search-cars{
       width: 210px;
       height: 50px;

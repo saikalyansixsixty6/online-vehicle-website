@@ -1,5 +1,5 @@
-import React from 'react'
-import Header from '../header/header'
+
+import Header from '../HeaderCom/MainHeader'
 import Home from '../../pages/Home'
 
 function layouts() {
