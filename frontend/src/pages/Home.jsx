@@ -4,12 +4,13 @@ import heroimg1 from '../Assets/images/heroimg1.png'
 import '../pages/Home.css'
 import carsData from '../Assets/data/cars'
 import CarCards from '../shared/Carcard';
+import Layoute from '../components/layouts/layouts';
 
 function Home() {
 
   return <>
   <main>
-  
+  <Layoute/>
   <div className="hero-section">
         <div className="img-section">
             <img src={heroimg1} alt="" className='img-hero-section' />
