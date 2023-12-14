@@ -42,7 +42,7 @@ const MainHeader = ()=> {
       <div className="header2 flex flex-wrap mt-3 ">
 
         <div className="search-vahcle flex flex-wrap gap-5 mr-2 cursor-pointer">
-          <input type="text" placeholder='India' id='' className='search-cars'/>
+          <input type="text" placeholder='Search for vehcles' id='' className='search-cars '/>
           <FontAwesomeIcon icon={faMagnifyingGlass} className='search-icon-svg3'/>
           <p className='language mt-4'> ENGLISH </p>
           <FontAwesomeIcon icon={faCaretDown} className='search-icon-svg mt-4 w-6 h-6 ml-0'/>
