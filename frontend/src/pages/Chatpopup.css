@@ -12,9 +12,9 @@
   }
   
   .chat-popup {
-    width: 360px;
-    height: 360px;
-    background-color: white;
+    width: 450px;
+    height: 450px;
+    background-color: rgb(255, 255, 255);
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
@@ -24,4 +24,20 @@
     top: 10px;
     right: 10px;
     cursor: pointer;
+  }
+  .chat_text_box{
+    border: 1px solid #ccc;
+    background-color: rgb(239, 222, 222);
+    margin-left: 4.55px;
+    width: 27.5rem;
+    height: 25rem;
+  }
+  .input_box{
+   padding-top: 340px;
+    margin-left: 80px;
+
+  }
+  .send_icon{
+    width: 24px;
+    height: 23px;
   }
