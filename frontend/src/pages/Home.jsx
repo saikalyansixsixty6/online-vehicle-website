@@ -4,21 +4,21 @@ import heroimg1 from '../Assets/images/heroimg1.png'
 import '../pages/Home.css'
 import carsData from '../Assets/data/cars'
 import CarCards from '../shared/Carcard';
-<<<<<<< HEAD
-import MainHeader from '../components/HeaderCom/MainHeader';
-=======
-import Layoute from '../components/layouts/layouts';
 
->>>>>>> 10ca989daee6e44256e0140d741e8b1cbed8320a
+import MainHeader from '../components/HeaderCom/MainHeader';
+
+
+
+
 function Home() {
 
   return <>
   <main>
-<<<<<<< HEAD
+
   <MainHeader/>
-=======
-  <Layoute/>
->>>>>>> 10ca989daee6e44256e0140d741e8b1cbed8320a
+
+  
+
   <div className="hero-section">
         <div className="img-section">
             <img src={heroimg1} alt="" className='img-hero-section' />
