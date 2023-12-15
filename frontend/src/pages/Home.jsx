@@ -1,6 +1,5 @@
 import React from 'react'
 import heroimg1 from '../Assets/images/heroimg1.png'
-// import car1 from '../images/car1.jpg'
 import '../pages/Home.css'
 import carsData from '../Assets/data/cars'
 import CarCards from '../shared/Carcard';

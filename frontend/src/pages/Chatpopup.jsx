@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+
 import './Chatpopup.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import PropTypes from 'prop-types';

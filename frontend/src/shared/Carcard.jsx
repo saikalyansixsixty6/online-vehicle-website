@@ -1,13 +1,12 @@
 
 import {Card, CardBody} from 'reactstrap';
 import '../shared/carcard.css'
-import { Link } from 'react-router-dom';
 import ChatPopup from '../pages/Chatpopup';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 
 const CarCard = ({car}) => {
-    const {_id, BrandName,photo,price }=car;
+    const { BrandName,photo,price }=car;
     const [isChatOpen, setChatOpen] = useState(false);
 
     const openChat = () => {
