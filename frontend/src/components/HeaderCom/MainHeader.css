@@ -10,40 +10,43 @@
       height: 74px;
   }
   .search-location input{
-      width: 210px;
+      width: 179px;
       height: 50px;
-      font-size: 25px;
-      border-radius: 30px;
-      text-align: center;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 16px;
+      font-weight: regular;
+      border-radius: 3px;
+      text-align:center;
       color: rgb(172, 159, 159);
+      background-color: rgb(236, 233, 233);
       /* border: none; */
       border: 1px solid #ccc;
       
+  }
+  .search-location input:hover{
+    border:none;
   }
   .search-icon .search-icon-svg{
       width: 44px;
       height: 30px;
       position: absolute;
-      margin-top: -40px;
-      margin-left: 4px;
+      margin-top: -37px;
+      margin-left: 40px;
       cursor: pointer;
   }
-  .search-icon-svg2{
-      width: 55px;
-      height: 44px;
-      position: absolute;
-      margin-top: -47px;
-      margin-left: 140px;
-      cursor: pointer;
+
   
-  }
   .search-cars{
-      width: 210px;
+      width: 220px;
       height: 50px;
-      font-size: 25px;
-      border-radius: 30px;
-      text-align: center;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 16px;
+      font-weight: regular;
+      padding-left: 20px;
+      border-radius: 3px;
+      text-align: start;
       color: rgb(172, 159, 159);
+      background-color: rgb(236, 233, 233);
       /* border: none; */
       border: 1px solid #ccc;
   }
@@ -52,7 +55,7 @@
       height: 30px;
       position: absolute;
       margin-top: 10px;
-       margin-left:159px;
+       margin-left:169px;
       cursor: pointer;
   }
   .search-vahcle .search-icon-svg{

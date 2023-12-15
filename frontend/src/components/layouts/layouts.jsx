@@ -1,11 +1,11 @@
-import React from 'react'
-import Header from '../header/header'
-import Home from '../../pages/Home'
+
+import Header from '../HeaderCom/MainHeader'
+
 
 function layouts() {
   return <>
   <Header/>
-  <Home/>
+
   </>
 }
 
