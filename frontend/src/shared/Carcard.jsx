@@ -1,6 +1,7 @@
 
 import {Card, CardBody} from 'reactstrap';
 import '../shared/carcard.css'
+import { Link } from 'react-router-dom';
 // import ChatPopup from '../pages/Chatpopup';
 // import { useState } from 'react';
 
@@ -20,9 +21,9 @@ const CarCard = ({car}) => {
           </div>
         </Card>
         <CardBody className="car_info">
-          <p className="brand text-left">{BrandName}</p>
+          <p className="brand text-lefd">{BrandName}</p>
           <p>{price}</p>
-          <button>Request to Test Drive</button>
+          <Link to='/chatpopup'><button>Request to Test Drive</button> </Link>
           
           
         </CardBody>
