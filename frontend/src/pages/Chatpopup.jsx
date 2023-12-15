@@ -1,7 +1,6 @@
 
 import './Chatpopup.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import PropTypes from 'prop-types';
 
 import { faTimes, } from '@fortawesome/free-solid-svg-icons';
 
@@ -24,8 +23,6 @@ function Chatpopup({ onClose }) {
     );
   }
   
-  Chatpopup.propTypes = {
-    closeChat: PropTypes.func.isRequired,
-  };
+ 
   
   export default Chatpopup;
