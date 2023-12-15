@@ -71,22 +71,22 @@ const MainHeader = ()=> {
                 <div className="dropdown absolute ml-80 mt-14  bg-white shadow-lg rounded-md">
                   <ul className="py-1">
                     <li>
-                      <a href="/profile" className="block px-4 py-2 text-gray-800 hover:bg-blue-500 hover:text-white">
+                      <a href="/profile" className="block px-4 py-2 text-gray-800 hover:bg-rose-200 hover:text-white">
                         Profile
                       </a>
                     </li>
                     <li>
-                      <a href="/admin" className="block px-4 py-2 text-gray-800 hover:bg-blue-500 hover:text-white">
+                      <a href="/admin" className="block px-4 py-2 text-gray-800 hover:bg-rose-200 hover:text-white">
                         Admin
                       </a>
                     </li>
                     <li>
-                      <a href="/login" className="block px-4 py-2 text-gray-800 hover:bg-blue-500 hover:text-white">
+                      <a href="/login" className="block px-4 py-2 text-gray-800 hover:bg-rose-200 hover:text-white">
                         Login
                       </a>
                     </li>
                     <li>
-                      <a href="/logout" className="block px-4 py-2 text-gray-800 hover:bg-blue-500 hover:text-white">
+                      <a href="/logout" className="block px-4 py-2 text-gray-800 hover:bg-rose-200 hover:text-white">
                         Logout
                       </a>
                     </li>
@@ -108,17 +108,17 @@ const MainHeader = ()=> {
               <div className="dropdown absolute mt-2 bg-white shadow-lg rounded-md">
                 <ul className="py-1">
                   <li>
-                    <a href="/" className="block px-4 py-2 text-gray-800 hover:bg-blue-500 hover:text-white">
+                    <a href="/" className="block px-4 py-2 text-gray-800 hover:bg-rose-200 hover:text-white">
                       Category 1
                     </a>
                   </li>
                   <li>
-                    <a href="/" className="block px-4 py-2 text-gray-800 hover:bg-blue-500 hover:text-white">
+                    <a href="/" className="block px-4 py-2 text-gray-800 hover:bg-rose-200 hover:text-white">
                       Category 2
                     </a>
                   </li>
                   <li>
-                    <a href="/`" className="block px-4 py-2 text-gray-800 hover:bg-blue-500 hover:text-white">
+                    <a href="/`" className="block px-4 py-2 text-gray-800 hover:bg-rose-200 hover:text-white">
                       Category 3
                     </a>
                   </li>
