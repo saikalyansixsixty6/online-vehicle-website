@@ -2,16 +2,23 @@
 import {Card, CardBody} from 'reactstrap';
 import '../shared/carcard.css'
 import { Link } from 'react-router-dom';
-// import ChatPopup from '../pages/Chatpopup';
-// import { useState } from 'react';
-
+import ChatPopup from '../pages/Chatpopup';
+import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const CarCard = ({car}) => {
     const {_id, BrandName,photo,price }=car;
-    
+    const [isChatOpen, setChatOpen] = useState(false);
 
-
+    const openChat = () => {
+      console.log('Opening chat...');
+      setChatOpen(true);
+    };
     
+    const closeChat = () => {
+      console.log('Closing chat...');
+      setChatOpen(false);
+    };
 
   return <>
     <div className="car_container">
@@ -23,11 +30,13 @@ const CarCard = ({car}) => {
         <CardBody className="car_info">
           <p className="brand text-lefd">{BrandName}</p>
           <p>{price}</p>
-          <Link to='/chatpopup'><button>Request to Test Drive</button> </Link>
-          
-          
+          <button onClick={openChat}>Request to Test Drive</button> 
+          {isChatOpen && <ChatPopup onClose={closeChat} />}  
         </CardBody>
       </div>
     </>
 }
+CarCard.propTypes = {
+  car: PropTypes.object.isRequired,
+};
 export default CarCard;
