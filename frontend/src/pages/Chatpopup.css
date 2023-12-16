@@ -36,14 +36,27 @@
  
   
   }
+ .message{
+  margin-top: 5px;
+  margin-left: auto;
+  height: max-content;
+  width: max-content;
+  
+  padding: 4.3px;
+  background-color: #cdcdd6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: rgb(93, 88, 88);
+  border-radius: 7px;
+  
+ }
   .input_box{
   padding-top: 10px;
     margin-left: 70px;
   background-color: rgb(227, 184, 184);
   outline: none;
   border: none;
-
-
   }
  
   .send_icon{

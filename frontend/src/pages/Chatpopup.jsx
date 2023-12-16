@@ -44,9 +44,9 @@ function Chatpopup({ onClose }) {
           </div>
           <div className="chat_text_box">
             <div className="messages-container">
-              {messages.map((message, index) => (
-                <div key={index} className={`message ${message.sender}`}>
-                  {message.text}
+              {messages.map((message) => (
+                <div key={message.id} className={`message ${message.sender}`} >
+                 <div className="message">{message.text}</div>
                 </div>
               ))}
             </div>
