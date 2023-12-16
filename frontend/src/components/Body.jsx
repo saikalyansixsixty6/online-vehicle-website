@@ -8,6 +8,8 @@ import { useDispatch } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import Home from "../pages/Home";
 import AdminDashBoard from "../pages/Admin/AdminDashBoard";
+import AddVehicle from "../pages/Admin/AddVehicle";
+import UpdateVehicle from "../pages/Admin/UpdateVehicle";
 
 
 
@@ -29,7 +31,15 @@ const Body = () => {
      {
       path:"/admin",
       element:<AdminDashBoard/>,
-   }
+     },
+     {
+      path:"/addvehicle",
+      element:<AddVehicle/>,
+     },
+     {
+      path:"/updatevehicle",
+      element:<UpdateVehicle/>,
+     }
 
 
     ]);

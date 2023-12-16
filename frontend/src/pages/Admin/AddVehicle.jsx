@@ -20,7 +20,7 @@ const AddVehicle = () => {
                             onChange={(e)=>setVehicles({...vehicles, title : e.target.value})}
                             name='title'
                             className=' bg-gray-600 mb-4 px-2 py-2 w-full lg:w-[20em] rounded-lg text-white placeholder:text-gray-200 outline-none'
-                            placeholder='Product title'
+                            placeholder='Vehicle name'
                         />
                     </div>
                     <div>
@@ -29,7 +29,7 @@ const AddVehicle = () => {
                             value={vehicles.price}
                             onChange={(e)=>setVehicles({...vehicles, price : e.target.value})}
                             className=' bg-gray-600 mb-4 px-2 py-2 w-full lg:w-[20em] rounded-lg text-white placeholder:text-gray-200 outline-none'
-                            placeholder='Product price'
+                            placeholder='Vehicle price'
                         />
                     </div>
                     <div>
@@ -38,7 +38,7 @@ const AddVehicle = () => {
                             value={vehicles.imageUrl}
                             onChange={(e)=>setVehicles({...vehicles, imageUrl : e.target.value})}
                             className=' bg-gray-600 mb-4 px-2 py-2 w-full lg:w-[20em] rounded-lg text-white placeholder:text-gray-200 outline-none'
-                            placeholder='Product imageUrl'
+                            placeholder='Vehicle imageUrl'
                         />
                     </div>
                     <div>
@@ -47,7 +47,7 @@ const AddVehicle = () => {
                             value={vehicles.category}
                             onChange={(e)=>setVehicles({...vehicles, category : e.target.value})}
                             className=' bg-gray-600 mb-4 px-2 py-2 w-full lg:w-[20em] rounded-lg text-white placeholder:text-gray-200 outline-none'
-                            placeholder='Product category'
+                            placeholder='Vehicle category'
                         />
                     </div>
                     <div>
@@ -55,7 +55,7 @@ const AddVehicle = () => {
                             value={vehicles.description}
                             onChange={(e)=>setVehicles({...vehicles, description : e.target.value})}
                             className=' bg-gray-600 mb-4 px-2 py-2 w-full lg:w-[20em] rounded-lg text-white placeholder:text-gray-200 outline-none'
-                            placeholder='Product Description'>
+                            placeholder='Vehicle Description'>
 
                        </textarea>
                     </div>

@@ -27,32 +27,8 @@ const MyState = (props) => {
 
   })
 
-
-  const addVehicle = async () => {
-    if (vehicles.title == null || vehicles.price == null || vehicles.imageUrl == null || vehicles.category == null || vehicles.description == null) {
-      return toast.error('Please fill all fields')
-    }
-    const productRef = collection(fireDB, "vehicles")
-    setLoading(true)
-    try {
-      await addDoc(productRef, vehicles)
-      toast.success("Product Add successfully")
-      // setTimeout(() => {
-      //   window.location.href = "/dashboard"
-      // }, 800);
-      getProductData()
-      setLoading(false)
-    } catch (error) {
-      console.log(error)
-      setLoading(false)
-    }
-    setVehicles("")
-  }
-
-  const [vehicle, setVehicle] = useState([]);
-
-  // ****** get product ******//
-  const getProductData = async () => {
+  // ****** get vehicle data ******//
+  const getVehicleData = async () => {
     setLoading(true)
     try {
       const q = query(
@@ -75,6 +51,33 @@ const MyState = (props) => {
     }
   }
 
+
+  const addVehicle = async () => {
+    if (vehicles.title == null || vehicles.price == null || vehicles.imageUrl == null || vehicles.category == null || vehicles.description == null) {
+      return toast.error('Please fill all fields')
+    }
+    const productRef = collection(fireDB, "vehicles")
+    setLoading(true)
+    try {
+      await addDoc(productRef, vehicles)
+      toast.success("Vehicle Added successfully")
+      // setTimeout(() => 
+      //   window.location.href = "/dashboard"
+      // }, 800);
+      getVehicleData()
+      setLoading(false)
+    } catch (error) {
+      console.log(error)
+      setLoading(false)
+    }
+    setVehicles("")
+  }
+
+  const [vehicle, setVehicle] = useState([]);
+
+  
+  
+
   
 
   const edithandle = (item) =>{
@@ -88,7 +91,7 @@ const MyState = (props) => {
      try{
          await setDoc(doc(fireDB,"vehicles",vehicles.id),vehicles)
          toast.success("Product updated successfully")
-         getProductData()
+        getVehicleData()
         //  setTimeout(() => {
         //   window.location.href = "/dashboard"
         //  }, 800);
@@ -109,7 +112,7 @@ const MyState = (props) => {
       await deleteDoc(doc(fireDB,"vehicles",item.id))
       toast.success("Product deleted Successfully")
       setLoading(false)
-      getProductData()
+      getVehicleData()
     } catch (error) {
       console.log(error)
       setLoading(false)
@@ -157,7 +160,7 @@ const MyState = (props) => {
   // }
 
   useEffect(() => {
-    getProductData();
+    getVehicleData();
     
   }, []);
 

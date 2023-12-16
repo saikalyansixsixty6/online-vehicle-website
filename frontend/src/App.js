@@ -5,6 +5,7 @@ import appStore from './utils/appStore'
 import {Provider} from "react-redux"
 import MyState from './context/MyState';
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
