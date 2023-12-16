@@ -47,7 +47,7 @@ const MainHeader = ()=>{
   return <>
   
   <div className={`${isSticky ? 'sticky' : ''}`}>
-    <div className='container  mr-2 w-auto flex flex-wrap justify-between' >
+    <div className='container  mr-1 w-auto flex flex-wrap justify-between' >
       <div className="header flex flex-wrap">
         <div className="logo ">
           <img src={Ellips} alt="logo" className='ml-5' />
@@ -100,7 +100,7 @@ const MainHeader = ()=>{
         <div className="user-icons"></div>
       </div>
     </div>
-    <div className="header-category mt-10 pl-10 flex flex-wrap gap-16 pb-5">
+    <div className="header-category mt-5 pl-10 flex flex-wrap gap-16 pb-5">
           <div className="categories  relative category">
             <p onClick={toggleDropdown} className="cursor-pointer">
               All Categories
