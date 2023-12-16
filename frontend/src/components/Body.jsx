@@ -7,6 +7,7 @@ import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import Home from "../pages/Home";
+import AdminDashBoard from "../pages/Admin/AdminDashBoard";
 
 
 
@@ -24,7 +25,11 @@ const Body = () => {
      {
         path:"/home",
         element:<Home/>,
-     }
+     },
+     {
+      path:"/admin",
+      element:<AdminDashBoard/>,
+   }
 
 
     ]);
