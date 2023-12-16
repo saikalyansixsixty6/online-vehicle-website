@@ -2,10 +2,12 @@ import "./MainHeader.css"
 import Ellips from '../../Assets/images/img.png'
 import { useState,useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMagnifyingGlass,faCaretDown,faUser,faComment,faAngleDown} from '@fortawesome/free-solid-svg-icons'
+import { faMagnifyingGlass,faCaretDown,faUser,faComment,faAngleDown} from "@fortawesome/free-solid-svg-icons"
 
-const MainHeader = ()=> {
-  console.log('header working')
+
+const MainHeader = ()=>{
+  
+  
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const[isDropdownOpenCategory, setDropdownOpenCategory]=useState(false)
   const [isSticky, setSticky] = useState(false);

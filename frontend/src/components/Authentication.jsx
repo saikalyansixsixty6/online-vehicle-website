@@ -41,6 +41,7 @@ const Authentication = () => {
              }).then(() => {
               const {uid,email,displayName,photoURL} = auth.currentUser;
               dispatch(addUser({uid:uid,email:email,displayName:displayName,photoURL:photoURL}))
+              console.log(user)
             navigate("/home")
            }).catch((error) => {
               setErrorMessage(error.message)
