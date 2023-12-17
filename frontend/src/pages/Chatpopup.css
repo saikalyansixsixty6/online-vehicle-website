@@ -1,65 +1,96 @@
 .chat-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    backdrop-filter: blur(5px);
-    z-index: 1000;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px);
+  z-index: 1000;
+}
+
+.chat-popup {
+  width: 450px;
+  height: 450px;
+  background-color: rgb(227, 184, 184);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.chat_text_box {
+  border: 1px solid #ccc;
+  background-color: rgb(239, 222, 222);
+  margin-left: 4.55px;
+  width: 27.5rem;
+  height: 21rem;
+  overflow-y: auto;
+  display: flex;
+  align-items: end;
+  flex-direction: column-reverse;
+}
+
+.message-container {
   
-  .chat-popup {
-    width: 450px;
-    height: 450px;
-    background-color: rgb(227, 184, 184);
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
-  }
-  
-  .close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-  }
-  .chat_text_box{
-    border: 1px solid #ccc;
-    background-color: rgb(239, 222, 222);
-    margin-left: 4.55px;
-    width: 27.5rem;
-    height: 21rem;
-    overflow-y: auto;  
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 7px;
+}
+
+.message {
  
-  
-  }
- .message{
-  margin-top: 5px;
-  margin-left: auto;
   height: max-content;
   width: max-content;
-  
   padding: 4.3px;
   background-color: #cdcdd6;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  margin-top: 7px;
+  
+  /* justify-content: space-between; */
   color: rgb(93, 88, 88);
   border-radius: 7px;
-  
- }
-  .input_box{
+}
+
+.input_box {
   padding-top: 10px;
-    margin-left: 70px;
+  margin-left: 70px;
   background-color: rgb(227, 184, 184);
   outline: none;
   border: none;
-  }
- 
-  .send_icon{
-    width: 24px;
-    height: 23px;
-  }
+}
+
+.send_icon {
+  width: 24px;
+  height: 23px;
+}
+.message-container.user {
+  justify-content: flex-end;
+}
+
+.message.user {
+  background-color: #cdcdd6;
+  color: rgb(93, 88, 88);
+  border-radius: 7px;
+  margin-top: 7px;
+}
+
+.message-container.reply {
+  justify-content: flex-start;
+}
+
+.message.reply {
+  background-color: #9090d7;
+  color: rgb(93, 88, 88);
+  border-radius: 7px;
+  margin-top: 7px;
+}
