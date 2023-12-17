@@ -1,6 +1,6 @@
 import React from 'react'
-import AddVehicle from './AddVehicle'
 import {FaUserTie } from 'react-icons/fa';
+import AdminDashBoardTab from './AdminDashBoardTab';
 
 const AdminDashBoard = () => {
   return (
@@ -47,11 +47,11 @@ const AdminDashBoard = () => {
                 </div>
             </div>
             </section>
-      <AddVehicle/>
+      
+      <AdminDashBoardTab/>
     </div>
     
   )
 }
 
 export default AdminDashBoard
-// style={{ color: mode === 'dark' ? 'white' : ''}}
