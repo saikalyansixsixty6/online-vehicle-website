@@ -1,17 +1,16 @@
-import React, { useState, useContext } from 'react';
+
+import  { useState} from 'react';
 import { Card, CardBody} from 'reactstrap';
 import '../shared/carcard.css';
 import ChatPopup from '../pages/Chatpopup';
 import PropTypes from 'prop-types';
-import MyContext from '../context/MyContext';
 
-const CarCard = ({ car }) => {
-  // const { BrandName, photo, price } = car;
+const CarCard = ({ vehicle }) => {
+ 
   const [isChatOpen, setChatOpen] = useState(false);
-  const context = useContext(MyContext);
-  const { vehicle } = context;
-
+  
   const { title, imageUrl, price } = vehicle;
+  
 
   const openChat = () => {
     console.log('Opening chat...');
