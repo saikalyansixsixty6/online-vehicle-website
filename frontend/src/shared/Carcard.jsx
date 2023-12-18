@@ -4,16 +4,13 @@ import '../shared/carcard.css'
 import ChatPopup from '../pages/Chatpopup';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import { useContext } from 'react';
-import MyContext from '../context/MyContext';
+
 
 const CarCard = ({car}) => {
     const { BrandName,photo,price }=car;
     const [isChatOpen, setChatOpen] = useState(false);
 
-    const context = useContext(MyContext);
-  const {vehicles} = context;
-
+    
     const openChat = () => {
       console.log('Opening chat...');
       setChatOpen(true);
@@ -40,7 +37,7 @@ const CarCard = ({car}) => {
         </CardBody>
       </div>
        
-       
+
 
 
 

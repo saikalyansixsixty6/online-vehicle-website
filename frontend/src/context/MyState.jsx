@@ -1,7 +1,7 @@
 import React from 'react'
 import MyContext from './MyContext'
 import { useState,useEffect } from 'react'
-import { Timestamp, addDoc, collection, deleteDoc, doc, onSnapshot, orderBy, query, setDoc } from 'firebase/firestore';
+import { Timestamp, addDoc, collection, deleteDoc, doc, onSnapshot, orderBy, query, setDoc,getDocs } from 'firebase/firestore';
 import { fireDB } from '../utils/firebase';
 import {toast} from "react-toastify"
 
@@ -90,7 +90,7 @@ const MyState = (props) => {
     setLoading(true)
      try{
          await setDoc(doc(fireDB,"vehicles",vehicles.id),vehicles)
-         toast.success("Product updated successfully")
+         toast.success("Vehicle updated successfully")
         getVehicleData()
         //  setTimeout(() => {
         //   window.location.href = "/dashboard"
@@ -119,25 +119,25 @@ const MyState = (props) => {
     }
   }
 
-  // const [order, setOrder] = useState([]);
+  const [request, setRequest] = useState([]);
 
-  // const getOrderData = async () => {
-  //   setLoading(true)
-  //   try {
-  //     const result = await getDocs(collection(fireDB, "order"))
-  //     const ordersArray = [];
-  //     result.forEach((doc) => {
-  //       ordersArray.push(doc.data());
-  //       setLoading(false)
-  //     });
-  //     setOrder(ordersArray);
-  //     console.log(ordersArray)
-  //     setLoading(false);
-  //   } catch (error) {
-  //     console.log(error)
-  //     setLoading(false)
-  //   }
-  // }
+  const getRequestData = async () => {
+    setLoading(true)
+    try {
+      const result = await getDocs(collection(fireDB, "request"))
+      const ordersArray = [];
+      result.forEach((doc) => {
+        ordersArray.push(doc.data());
+        setLoading(false)
+      });
+      setRequest(ordersArray);
+      console.log(ordersArray)
+      setLoading(false);
+    } catch (error) {
+      console.log(error)
+      setLoading(false)
+    }
+  }
 
   // const [user, setUser] = useState([]);
 
@@ -161,7 +161,7 @@ const MyState = (props) => {
 
   useEffect(() => {
     getVehicleData();
-    
+    getRequestData()
   }, []);
 
 
@@ -172,7 +172,7 @@ const MyState = (props) => {
 
     
   return (
-    <MyContext.Provider value={{vehicles,setVehicles,edithandle,vehicle,setVehicle,updateVehicle,deleteVehicle,addVehicle,loading}}>
+    <MyContext.Provider value={{vehicles,setVehicles,edithandle,vehicle,setVehicle,updateVehicle,deleteVehicle,addVehicle,loading,request,setRequest}}>
       {props.children}
     </MyContext.Provider>
   )
