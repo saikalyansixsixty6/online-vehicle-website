@@ -37,6 +37,11 @@ const cars=[
         BrandName:'benz',
         price:'4lac',
         photo:carImg05
+    },    {
+        id:'01',
+        BrandName:'benz',
+        price:'14lac',
+        photo:carImg01
     },
     {
         id:'06',
@@ -55,7 +60,12 @@ const cars=[
         BrandName:'marcedo',
         price:'56lac',
         photo:carImg08
-    }
+    },    {
+        id:'01',
+        BrandName:'benz',
+        price:'14lac',
+        photo:carImg01
+    },
 ];
 
 export default cars;
