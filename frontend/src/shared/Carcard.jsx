@@ -2,12 +2,16 @@
 import {Card, CardBody} from 'reactstrap';
 import '../shared/carcard.css'
 import ChatPopup from '../pages/Chatpopup';
-import { useState } from 'react';
+import { useState,useContext } from 'react';
 import PropTypes from 'prop-types';
+// import MyContext from '../../context/MyContext';
 
 
 const CarCard = ({car}) => {
-    const { BrandName,photo,price }=car;
+    const {  BrandName,photo,price }=car;
+    // const context = useContext(MyContext);
+    // const { vehicles } = context;
+
     const [isChatOpen, setChatOpen] = useState(false);
 
     
@@ -36,15 +40,7 @@ const CarCard = ({car}) => {
           {isChatOpen && <ChatPopup onClose={closeChat} />}  
         </CardBody>
       </div>
-       
-
-
-
-
-
-
-
-
+      
     </>
 }
 CarCard.propTypes = {

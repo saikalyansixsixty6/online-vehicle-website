@@ -1,27 +1,23 @@
-// Import the functions you need from the SDKs you need
+
 import { initializeApp } from "firebase/app";
-import {getAuth} from "firebase/auth"
-import {getFirestore} from "firebase/firestore"
-
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// import { getAnalytics } from "firebase/analytics";
+// import { initializeApp } from "firebase/app";
+ import {getAuth} from "firebase/auth"
+ import {getFirestore} from "firebase/firestore"
 const firebaseConfig = {
-  apiKey: "AIzaSyDoc2GBxmMtawK_yD5n1w5ZEAHI6_MAUpA",
-  authDomain: "vehicles-selling-website.firebaseapp.com",
-  projectId: "vehicles-selling-website",
-  storageBucket: "vehicles-selling-website.appspot.com",
-  messagingSenderId: "344509125695",
-  appId: "1:344509125695:web:9e6b600925af65a3c6948a",
-  measurementId: "G-KBMZCMB63L"
+  apiKey: "AIzaSyArYv5qOjTC4ENIBhWIFWLKP-5rG5BPiyo",
+  authDomain: "vehiclemart-212c2.firebaseapp.com",
+  projectId: "vehiclemart-212c2",
+  storageBucket: "vehiclemart-212c2.appspot.com",
+  messagingSenderId: "782613351546",
+  appId: "1:782613351546:web:87e3e920f3dfdb7d2c3fc3",
+  measurementId: "G-JLXY73VJF2"
 };
 
 // Initialize Firebase
-const firebaseApp = initializeApp(firebaseConfig);
-
-const fireDB = getFirestore(firebaseApp)
+const app = initializeApp(firebaseConfig);
+// const analytics = getAnalytics(app);
+const fireDB = getFirestore(app)
 const auth = getAuth()
 
 export {fireDB,auth}
