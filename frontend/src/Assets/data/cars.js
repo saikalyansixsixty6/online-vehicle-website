@@ -38,7 +38,7 @@ const cars=[
         price:'4lac',
         photo:carImg05
     },    {
-        id:'01',
+        id:'09',
         BrandName:'benz',
         price:'14lac',
         photo:carImg01
@@ -61,7 +61,7 @@ const cars=[
         price:'56lac',
         photo:carImg08
     },    {
-        id:'01',
+        id:'10',
         BrandName:'benz',
         price:'14lac',
         photo:carImg01

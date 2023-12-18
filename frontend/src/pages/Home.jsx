@@ -3,18 +3,16 @@ import heroimg1 from '../Assets/images/heroimg1.png';
 import '../pages/Home.css';
 import carsData from '../Assets/data/cars';
 import CarCards from '../shared/Carcard';
-import MyContext from '../context/MyContext'
+import MyContext from '../context/MyContext';
 import MainHeader from '../components/HeaderCom/MainHeader';
 
 function Home() {
   const context = useContext(MyContext);
-  const { vehicles } = context;
-  console.log(vehicles);
+  const { vehicle } = context;
+ console.log(vehicle)
+  // const vehiclesArray = Array.isArray(vehicle) ? vehicle : [];
 
-
-  const vehiclesArray = Array.isArray(vehicles) ? vehicles : [];
-
-  const allCars = [...carsData, ...vehiclesArray];
+  // const allCars = [...carsData, ...vehiclesArray];
 
   return (
     <>
@@ -31,9 +29,9 @@ function Home() {
               The most searched cars
             </p>
             <div className="card_box flex flex-wrap gap-6 ">
-            {allCars?.map((car, index) => (
-            <div key={car.id || index} className="w-50%">
-              <CarCards car={car} />
+              {vehicle?.map((car, index) => (
+                <div key={car.id || index} className="w-50%">
+                  <CarCards car={car} />
                 </div>
               ))}
             </div>
