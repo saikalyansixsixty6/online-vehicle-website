@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 const AdminDashBoardTab = () => {
    const context = useContext(MyContext)
-   const {deleteVehicle,edithandle,vehicle} = context
+   const {deleteVehicle,edithandle,vehicle,request} = context
 
    const add = () => {
     window.location.href = '/addvehicle'
@@ -25,12 +25,12 @@ const AdminDashBoardTab = () => {
                             <Tab>
                                 <button type="button" className="font-medium border-b-2 hover:shadow-purple-700 border-purple-500 text-purple-500 rounded-lg text-xl shadow-[inset_0_0_8px_rgba(0,0,0,0.6)]  px-5 py-1.5 text-center bg-[#605d5d12] ">
                                     <div className="flex gap-2 items-center">
-                                        <MdOutlineProductionQuantityLimits />Products</div> </button>
+                                        <MdOutlineProductionQuantityLimits />Vehicles</div> </button>
                             </Tab>
                             <Tab>
                                 <button type="button" className="font-medium border-b-2 border-pink-500 bg-[#605d5d12] text-pink-500  hover:shadow-pink-700  rounded-lg text-xl shadow-[inset_0_0_8px_rgba(0,0,0,0.6)]    px-5 py-1.5 text-center ">
                                     <div className="flex gap-2 items-center">
-                                        <AiFillShopping /> Order
+                                        <AiFillShopping /> Requests
                                     </div>
                                 </button>
                             </Tab>
@@ -45,14 +45,14 @@ const AdminDashBoardTab = () => {
                         {/* product  */}
                         <TabPanel>
                             <div className='  px-4 md:px-0 mb-16'>
-                                <h1 className=' text-center mb-5 text-3xl font-semibold underline' >Product Details</h1>
+                                <h1 className=' text-center mb-5 text-3xl font-semibold underline' >Vehicle Details</h1>
                                 <div className=" flex justify-end">
                                     <button
                                         onClick={add}
                                         type="button"
                                         className="focus:outline-none text-white bg-pink-600 shadow-[inset_0_0_10px_rgba(0,0,0,0.6)] border hover:bg-pink-700 outline-0 font-medium rounded-lg text-sm px-5 py-2.5 mb-2"> 
                                         <div className="flex gap-2 items-center">
-                                            Add Product <FaCartPlus size={20} />
+                                            Add Vehicle details <FaCartPlus size={20} />
                                         </div></button>
                                 </div>
                                 <div className="relative overflow-x-auto ">
@@ -114,7 +114,7 @@ const AdminDashBoardTab = () => {
                                                                         </svg>
                                                                     </div>
 
-                                                                    <Link to={'/updateproduct'}>
+                                                                    <Link to={'/updatevehicle'}>
                                                                         <div onClick={() => edithandle(item)}  >
                                                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                                                                                 <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
