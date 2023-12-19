@@ -6,8 +6,10 @@ import { fireDB } from '../utils/firebase';
 import {toast} from "react-toastify"
 
 
+
 const MyState = (props) => {
-   
+  
+  
   const [loading,setLoading] = useState(false)
   const [vehicles, setVehicles] = useState({
     title: null,
@@ -61,9 +63,9 @@ const MyState = (props) => {
     try {
       await addDoc(productRef, vehicles)
       toast.success("Vehicle Added successfully")
-      // setTimeout(() => 
-      //   window.location.href = "/dashboard"
-      // }, 800);
+      setTimeout(() => {
+        window.location.href = "/admin"
+      }, 800);
       getVehicleData()
       setLoading(false)
     } catch (error) {
@@ -91,10 +93,10 @@ const MyState = (props) => {
      try{
          await setDoc(doc(fireDB,"vehicles",vehicles.id),vehicles)
          toast.success("Vehicle updated successfully")
-        getVehicleData()
-        //  setTimeout(() => {
-        //   window.location.href = "/dashboard"
-        //  }, 800);
+         setTimeout(() => {
+          window.location.href = "/admin"
+        }, 800);
+         getVehicleData()
          setLoading(false)
 
      }

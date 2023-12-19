@@ -1,15 +1,37 @@
 import "./MainHeader.css"
-import Ellips from '../../Assets/images/img.png'
+// import Ellips from '../../Assets/images/img.png'
 import { useState,useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass,faCaretDown,faUser,faComment,faAngleDown} from "@fortawesome/free-solid-svg-icons"
+import Logo from "../../utils/vehicleMart.jpeg"
+import { Link, useNavigate } from "react-router-dom"
+import { auth } from "../../utils/firebase"
+// import { FaSignInAlt } from "react-icons/fa";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { useSelector,useDispatch } from "react-redux"
+import { addUser,removeUser } from "../../utils/userSlice"
 
 const MainHeader = ()=>{
-    
+  
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const[isDropdownOpenCategory, setDropdownOpenCategory]=useState(false)
   const [isSticky, setSticky] = useState(false);
- 
+  const User = auth.currentUser;
+  const user = useSelector(store => store.user)
+
+  const handleSignOut = ()=>{
+    
+    signOut(auth).then(() => {
+    // Sign-out successful.
+    
+     }).catch((error) => {
+      // An error happened.
+     });
+
+ }
+
 
   const toggleDropdown1 = () => {
     setDropdownOpen(!isDropdownOpen);
@@ -25,6 +47,27 @@ const MainHeader = ()=>{
       setDropdownOpenCategory(false);
     }
   }
+    useEffect(()=>{
+      const unsubscribe = onAuthStateChanged(auth, (user) => {
+        if (user) {
+          const {uid,email,displayName,photoURL} = user.uid;
+          dispatch(addUser({uid:uid,email:email,displayName:displayName,photoURL:photoURL}))
+          navigate("/home")
+ 
+ 
+ 
+          
+        } else {
+          
+          dispatch(removeUser())
+          navigate("/")
+          
+        }
+      });
+ 
+      return ()=> unsubscribe();
+    })
+
     useEffect(() => {
       document.addEventListener('click', closeDropdownsOnClickOutside);
       return () => {
@@ -48,16 +91,16 @@ const MainHeader = ()=>{
   <div className={`${isSticky ? 'sticky' : ''}`}>
     <div className='container  mr-1 w-auto flex flex-wrap justify-between' >
       <div className="header flex flex-wrap">
-        <div className="logo ">
-          <img src={Ellips} alt="logo" className='ml-5' />
-        </div>
-        <div className="search-location ml-5 mt-4">
+        <Link to="/home" >
+          <img src={Logo} alt="logo" className="h-12 m-4" />
+        </Link>
+        {/* <div className="search-location ml-5 mt-4">
           <input type="text" placeholder='India' />
           <div className="search-icon">
           <FontAwesomeIcon icon={faMagnifyingGlass} className='search-icon-svg'/>
           
           </div>
-        </div>
+        </div> */}
       </div>
       <div className="header2 flex flex-wrap mt-3 ">
 
@@ -66,7 +109,19 @@ const MainHeader = ()=>{
           <FontAwesomeIcon icon={faMagnifyingGlass} className='search-icon-svg3'/>
           <p className='language mt-4'> ENGLISH </p>
           <FontAwesomeIcon icon={faCaretDown} className='search-icon-svg mt-4 w-6 h-6 ml-0'/>
-          <FontAwesomeIcon onClick={toggleDropdown1} icon={faUser} className='user-icon mt-2 w-8 h-8'/>
+
+         {
+          User ? (
+            <div className="rounded-full h-12 w-12 bg-black text-white font-bold text-xl p-2">
+            {User.email.charAt(0).toUpperCase()}
+            </div>
+          ):(
+            <FontAwesomeIcon onClick={toggleDropdown1} icon={faUser} className='user-icon mt-2 w-8 h-8'/>
+          )
+         }
+
+          
+
           {/* user-icon dropdown */}
           {isDropdownOpen && ( 
                 <div className="dropdown absolute ml-80 mt-14  bg-white shadow-lg rounded-md">
@@ -95,6 +150,12 @@ const MainHeader = ()=>{
                 </div>
               )}
           <FontAwesomeIcon icon={faComment} className='user-chat mt-2 w-8 h-8'/>
+          {/* <p onClick={handleSignOut}><FaSignInAlt  className="h-10 w-10 mx-auto"/></p> */}
+          {
+            user && (<button onClick={handleSignOut}>Sign Out</button>)
+          }
+          
+
         </div>
         <div className="user-icons"></div>
       </div>
