@@ -1,0 +1,58 @@
+.div{
+    margin: 0;
+    font-size: 14px;
+    font-family: LatoGoogle,Lato,LatoWeb,sans-serif;
+    color: #484848;
+
+}
+.car_box{
+    height: auto;
+    width: 800px;
+   
+    margin-left: 400px;
+    margin-top: 30px;
+}
+.title{
+    font-weight: 650;
+    font-size: 35px;
+
+}
+.vehicle_image_details{
+    margin-top: 23px;
+    border: 1.5px solid rgb(223, 217, 217);
+    padding-bottom: 30px;
+}
+.image_size{
+    height: 320px ;
+    width: 470px;
+}
+.price span{
+    font-weight: 700;
+    font-size: 26px;
+    height: 100%;
+    font-family: LatoGoogle,Lato,LatoWeb,sans-serif;
+    color: #484848;
+}
+button{
+    width: 250px;
+    padding: 10px;
+   margin: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18.5px;
+    font-weight: 670;
+    margin-top: 120px;
+    background-color:#e53012;
+    color: rgb(251, 248, 248);
+}
+.vehicle_details span{
+    text-align: left;
+}
+
+.vehicle_name p{
+    font-size: 30px;
+    font-weight: 650;
+}
+.vehicle_para p{
+  
+   font-size: 30px;
+}

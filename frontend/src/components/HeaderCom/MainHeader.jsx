@@ -121,25 +121,23 @@ const MainHeader = ()=>{
 
           {user ? (
                 <>
-                  <div className="rounded-full h-12 w-12 bg-black text-white font-bold text-xl p-2" >
-                   <FontAwesomeIcon
-                    onClick={user ? toggleDropdown1 : undefined}
-                   icon={faUser}
-                   className="user-icon mt-2 w-8 h-8"
-                 />
+                
+                  <div  className="rounded-full h-12 w-12 bg-black text-white font-bold text-xl p-2" onClick={ toggleDropdown1}>
+                   
                     {User.email.charAt(0).toUpperCase()}
+                    {/* <FontAwesomeIcon icon={faCaretDown} onClick={user ? toggleDropdown1 : undefined} className='search-icon-svg mt-4 w-6 h-6 ml-0'/> */}
                   </div>
                   <FontAwesomeIcon icon={faComment}  className="user-chat mt-2 w-8 h-8" />
                   <FaSignInAlt className="h-10 w-10 mx-auto" onClick={handleSignOut} />
                  
                 </>
-              ) : (
                 
-                <FontAwesomeIcon
-                onClick={user ? toggleDropdown1 : undefined}
-               icon={faUser}
-               className="user-icon mt-2 w-8 h-8"
-             />
+              ) : (
+                 <FontAwesomeIcon
+                    onClick={toggleDropdown1}
+                   icon={faUser}
+                   className="user-icon mt-2 w-8 h-8"
+                 /> 
               )}
 
               {isDropdownOpen && (
@@ -172,30 +170,8 @@ const MainHeader = ()=>{
     <div className="header-category mt-5 pl-10 flex flex-wrap gap-16 pb-5">
           <div className="categories  relative category">
             <p onClick={toggleDropdown} className="cursor-pointer">
-              All Categories
-              <FontAwesomeIcon icon={faAngleDown} className='dropdown-icon ml-2 mt-1' />
+              All Categories :
             </p>
-            {isDropdownOpenCategory && (
-              <div className="dropdown absolute mt-2 bg-white shadow-lg rounded-md">
-                <ul className="py-1">
-                  <li>
-                    <a href="/" className="block px-4 py-2 text-gray-800 hover:bg-rose-200 hover:text-white">
-                      Category 1
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/" className="block px-4 py-2 text-gray-800 hover:bg-rose-200 hover:text-white">
-                      Category 2
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/`" className="block px-4 py-2 text-gray-800 hover:bg-rose-200 hover:text-white">
-                      Category 3
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            )}
           </div>
           <p>Cars</p>
           <p>Motor Cycles</p>
