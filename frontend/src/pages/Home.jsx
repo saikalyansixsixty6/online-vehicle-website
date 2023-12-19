@@ -6,7 +6,7 @@ import CarCards from '../shared/Carcard';
 import MyContext from '../context/MyContext';
 import MainHeader from '../components/HeaderCom/MainHeader';
 // import FilterPage from '../components/filters/FilterPage';
-// import Footer from '../components/Footer/Footer';
+import Footer from '../components/Footer/Footer';
 
 function Home() {
   const context = useContext(MyContext);
@@ -38,7 +38,7 @@ function Home() {
           </div>
         </div>
       </main>
-      {/* <Footer/> */}
+      <Footer/>
     </>
   );
 }
