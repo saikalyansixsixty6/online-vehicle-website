@@ -5,6 +5,8 @@ import '../pages/Home.css';
 import CarCards from '../shared/Carcard';
 import MyContext from '../context/MyContext';
 import MainHeader from '../components/HeaderCom/MainHeader';
+import FilterPage from '../components/filters/FilterPage';
+// import Footer from '../components/Footer/Footer';
 
 function Home() {
   const context = useContext(MyContext);
@@ -15,7 +17,7 @@ function Home() {
     <>
       <main>
         <MainHeader />
-
+        <FilterPage/>
         <div className="hero-section">
           <div className="img-section">
             <img src={heroimg1} alt="" className="img-hero-section" />
@@ -35,6 +37,7 @@ function Home() {
           </div>
         </div>
       </main>
+      {/* <Footer/> */}
     </>
   );
 }
