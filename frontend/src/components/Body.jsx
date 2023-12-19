@@ -40,10 +40,8 @@ const Body = () => {
      {
       path:"/updatevehicle",
       element:<UpdateVehicle/>,
-     },{
-      path:"/car_details",
-      element:<Cardetails/>,
-     },{
+     }
+     ,{
       path:"/car_details/:id",
       element:<Cardetails/>,
      }
