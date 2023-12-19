@@ -11,11 +11,16 @@ import { signOut } from "firebase/auth";
 import { useDispatch, useSelector} from "react-redux"
 import { removeUser } from "../../utils/userSlice"
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import MyContext from "../../context/MyContext"
+import { useContext } from "react"
 
 
 
 const MainHeader = ()=>{
   
+  const context = useContext(MyContext);
+  const {searchkey,setSearchkey} = context;
+
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const [isDropdownOpen, setDropdownOpen] = useState(false);
@@ -109,6 +114,8 @@ const MainHeader = ()=>{
         <input
         type="text"
         placeholder="Search for vehicles"
+        value={searchkey}
+        onChange={(e)=>setSearchkey(e.target.value)}
         className="w-full outline-none focus:outline-none"
         />
            <FontAwesomeIcon
