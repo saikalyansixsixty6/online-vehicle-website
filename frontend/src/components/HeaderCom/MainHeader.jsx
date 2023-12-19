@@ -4,13 +4,12 @@ import { useState,useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass,faCaretDown,faUser,faComment,faAngleDown} from "@fortawesome/free-solid-svg-icons"
 
-
 const MainHeader = ()=>{
-  
-  
+    
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const[isDropdownOpenCategory, setDropdownOpenCategory]=useState(false)
   const [isSticky, setSticky] = useState(false);
+ 
 
   const toggleDropdown1 = () => {
     setDropdownOpen(!isDropdownOpen);
@@ -69,7 +68,7 @@ const MainHeader = ()=>{
           <FontAwesomeIcon icon={faCaretDown} className='search-icon-svg mt-4 w-6 h-6 ml-0'/>
           <FontAwesomeIcon onClick={toggleDropdown1} icon={faUser} className='user-icon mt-2 w-8 h-8'/>
           {/* user-icon dropdown */}
-          {isDropdownOpen && (
+          {isDropdownOpen && ( 
                 <div className="dropdown absolute ml-80 mt-14  bg-white shadow-lg rounded-md">
                   <ul className="py-1">
                     <li>
