@@ -10,6 +10,7 @@ import Home from "../pages/Home";
 import AdminDashBoard from "../pages/Admin/AdminDashBoard";
 import AddVehicle from "../pages/Admin/AddVehicle";
 import UpdateVehicle from "../pages/Admin/UpdateVehicle";
+import Cardetails from "../pages/cardetails";
 
 
 
@@ -39,6 +40,12 @@ const Body = () => {
      {
       path:"/updatevehicle",
       element:<UpdateVehicle/>,
+     },{
+      path:"/car_details",
+      element:<Cardetails/>,
+     },{
+      path:"/car_details/:id",
+      element:<Cardetails/>,
      }
 
 
