@@ -6,7 +6,7 @@ import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
-import MainHeader from "./HeaderCom/MainHeader";
+
 
 
 const Authentication = () => {
@@ -92,7 +92,7 @@ const Authentication = () => {
     <div>
       
       
-     <MainHeader/>
+     
       <form onSubmit={(e)=>e.preventDefault()} className="w-3/12 absolute p-12 bg-black my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80">
       <h1 className="text-3xl font-bold py-4">{login? "SignIn":"SignUp"}</h1>
         { !login && 

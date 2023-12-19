@@ -2,14 +2,16 @@ import "./MainHeader.css"
 // import Ellips from '../../Assets/images/img.png'
 import { useState,useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMagnifyingGlass,faCaretDown,faUser,faComment,faAngleDown} from "@fortawesome/free-solid-svg-icons"
+import { faCaretDown,faUser,faComment,faAngleDown} from "@fortawesome/free-solid-svg-icons"
 import Logo from "../../utils/vehicleMart.jpeg"
-import { Link, useNavigate } from "react-router-dom"
+import { Link, useNavigate} from "react-router-dom"
 import { auth } from "../../utils/firebase"
-// import { FaSignInAlt } from "react-icons/fa";
-import { onAuthStateChanged, signOut } from "firebase/auth";
-import { useSelector,useDispatch } from "react-redux"
-import { addUser,removeUser } from "../../utils/userSlice"
+import { FaSignInAlt } from "react-icons/fa";
+import { signOut } from "firebase/auth";
+import { useDispatch, useSelector} from "react-redux"
+import { removeUser } from "../../utils/userSlice"
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+
 
 const MainHeader = ()=>{
   
@@ -25,6 +27,8 @@ const MainHeader = ()=>{
     
     signOut(auth).then(() => {
     // Sign-out successful.
+      navigate("/")
+      dispatch(removeUser())
     
      }).catch((error) => {
       // An error happened.
@@ -47,26 +51,26 @@ const MainHeader = ()=>{
       setDropdownOpenCategory(false);
     }
   }
-    useEffect(()=>{
-      const unsubscribe = onAuthStateChanged(auth, (user) => {
-        if (user) {
-          const {uid,email,displayName,photoURL} = user.uid;
-          dispatch(addUser({uid:uid,email:email,displayName:displayName,photoURL:photoURL}))
-          navigate("/home")
+    // useEffect(()=>{
+    //   const unsubscribe = onAuthStateChanged(auth, (user) => {
+    //     if (user) {
+    //       const {uid,email,displayName,photoURL} = user.uid;
+    //       dispatch(addUser({uid:uid,email:email,displayName:displayName,photoURL:photoURL}))
+    //       navigate("/home")
  
  
  
           
-        } else {
+    //     } else {
           
-          dispatch(removeUser())
-          navigate("/")
+    //       dispatch(removeUser())
+    //       navigate("/")
           
-        }
-      });
+    //     }
+    //   });
  
-      return ()=> unsubscribe();
-    })
+    //   return ()=> unsubscribe();
+    // })
 
     useEffect(() => {
       document.addEventListener('click', closeDropdownsOnClickOutside);
@@ -104,9 +108,18 @@ const MainHeader = ()=>{
       </div>
       <div className="header2 flex flex-wrap mt-3 ">
 
-        <div className="search-vahcle flex flex-wrap gap-5 mr-2 cursor-pointer">
-          <input type="text" placeholder='Search for vehcles' id='' className='search-cars '/>
-          <FontAwesomeIcon icon={faMagnifyingGlass} className='search-icon-svg3'/>
+      <div className="search-vahcle flex flex-wrap gap-5 mr-2 cursor-pointer">
+        <div className="flex items-center border-2 border-solid border-black rounded-md p-2 w-100 h-12">
+        <input
+        type="text"
+        placeholder="Search for vehicles"
+        className="w-full outline-none focus:outline-none"
+        />
+           <FontAwesomeIcon
+        icon={faSearch}
+        className="ml-2 text-gray-500 cursor-pointer"
+          />
+      </div>
           <p className='language mt-4'> ENGLISH </p>
           <FontAwesomeIcon icon={faCaretDown} className='search-icon-svg mt-4 w-6 h-6 ml-0'/>
 
@@ -150,9 +163,9 @@ const MainHeader = ()=>{
                 </div>
               )}
           <FontAwesomeIcon icon={faComment} className='user-chat mt-2 w-8 h-8'/>
-          {/* <p onClick={handleSignOut}><FaSignInAlt  className="h-10 w-10 mx-auto"/></p> */}
+          
           {
-            user && (<button onClick={handleSignOut}>Sign Out</button>)
+            user && (<FaSignInAlt className="h-10 w-10 mx-auto" onClick={handleSignOut}/>)
           }
           
 
