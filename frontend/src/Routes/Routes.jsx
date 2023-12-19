@@ -8,6 +8,7 @@ function Routes() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/chatpopup" component={ChatPopup} />
+        
     </Switch>
        
     </Router>

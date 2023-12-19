@@ -13,6 +13,7 @@ import { removeUser } from "../../utils/userSlice"
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 
+
 const MainHeader = ()=>{
   
   const dispatch = useDispatch()
@@ -21,7 +22,8 @@ const MainHeader = ()=>{
   const[isDropdownOpenCategory, setDropdownOpenCategory]=useState(false)
   const [isSticky, setSticky] = useState(false);
   const User = auth.currentUser;
-  const user = useSelector(store => store.user)
+  
+  const user = useSelector((store) => store.user);
 
   const handleSignOut = ()=>{
     
@@ -38,6 +40,7 @@ const MainHeader = ()=>{
 
 
   const toggleDropdown1 = () => {
+    console.log('succes')
     setDropdownOpen(!isDropdownOpen);
     setDropdownOpenCategory(false);
   };
@@ -98,13 +101,6 @@ const MainHeader = ()=>{
         <Link to="/home" >
           <img src={Logo} alt="logo" className="h-12 m-4" />
         </Link>
-        {/* <div className="search-location ml-5 mt-4">
-          <input type="text" placeholder='India' />
-          <div className="search-icon">
-          <FontAwesomeIcon icon={faMagnifyingGlass} className='search-icon-svg'/>
-          
-          </div>
-        </div> */}
       </div>
       <div className="header2 flex flex-wrap mt-3 ">
 
@@ -123,56 +119,56 @@ const MainHeader = ()=>{
           <p className='language mt-4'> ENGLISH </p>
           <FontAwesomeIcon icon={faCaretDown} className='search-icon-svg mt-4 w-6 h-6 ml-0'/>
 
-         {
-          User ? (
-            <div className="rounded-full h-12 w-12 bg-black text-white font-bold text-xl p-2">
-            {User.email.charAt(0).toUpperCase()}
-            </div>
-          ):(
-            <FontAwesomeIcon onClick={toggleDropdown1} icon={faUser} className='user-icon mt-2 w-8 h-8'/>
-          )
-         }
+          {user ? (
+                <>
+                  <div className="rounded-full h-12 w-12 bg-black text-white font-bold text-xl p-2" >
+                   <FontAwesomeIcon
+                    onClick={user ? toggleDropdown1 : undefined}
+                   icon={faUser}
+                   className="user-icon mt-2 w-8 h-8"
+                 />
+                    {User.email.charAt(0).toUpperCase()}
+                  </div>
+                  <FontAwesomeIcon icon={faComment}  className="user-chat mt-2 w-8 h-8" />
+                  <FaSignInAlt className="h-10 w-10 mx-auto" onClick={handleSignOut} />
+                 
+                </>
+              ) : (
+                
+                <FontAwesomeIcon
+                onClick={user ? toggleDropdown1 : undefined}
+               icon={faUser}
+               className="user-icon mt-2 w-8 h-8"
+             />
+              )}
 
-          
-
-          {/* user-icon dropdown */}
-          {isDropdownOpen && ( 
+              {isDropdownOpen && (
                 <div className="dropdown absolute ml-80 mt-14  bg-white shadow-lg rounded-md">
                   <ul className="py-1">
                     <li>
-                      <a href="/profile" className="block px-4 py-2 text-gray-800 hover:bg-rose-200 hover:text-white">
+                      <Link
+                        to="/profile"
+                        className="block px-4 py-2 text-gray-800 hover:bg-rose-200 hover:text-white"
+                      >
                         Profile
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="/admin" className="block px-4 py-2 text-gray-800 hover:bg-rose-200 hover:text-white">
+                      <Link
+                        to="/admin"
+                        className="block px-4 py-2 text-gray-800 hover:bg-rose-200 hover:text-white"
+                      >
                         Admin
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/login" className="block px-4 py-2 text-gray-800 hover:bg-rose-200 hover:text-white">
-                        Login
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/logout" className="block px-4 py-2 text-gray-800 hover:bg-rose-200 hover:text-white">
-                        Logout
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
               )}
-          <FontAwesomeIcon icon={faComment} className='user-chat mt-2 w-8 h-8'/>
-          
-          {
-            user && (<FaSignInAlt className="h-10 w-10 mx-auto" onClick={handleSignOut}/>)
-          }
-          
-
+             
+            </div>
+            <div className="user-icons"></div>
+          </div>
         </div>
-        <div className="user-icons"></div>
-      </div>
-    </div>
     <div className="header-category mt-5 pl-10 flex flex-wrap gap-16 pb-5">
           <div className="categories  relative category">
             <p onClick={toggleDropdown} className="cursor-pointer">
