@@ -10,8 +10,8 @@ import Footer from '../components/Footer/Footer';
 
 function Home() {
   const context = useContext(MyContext);
-  const { vehicle,searchkey} = context;
- console.log(vehicle)
+  const { vehicle, searchkey } = context;
+  console.log(vehicle);
 
   return (
     <>
@@ -19,8 +19,12 @@ function Home() {
         <MainHeader />
         {/* <FilterPage/> */}
         <div className="hero-section">
-          <div className="img-section ">
-            <img src={heroimg1} alt="" className="img-hero-section" style={{width:'1550px'}} />
+          <div className="img-section">
+            <img
+              src={heroimg1}
+              alt=""
+              className="img-hero-section max-w-full h-auto"
+            />
           </div>
 
           <div className="mx-auto max-w-7xl px-4">
@@ -30,52 +34,22 @@ function Home() {
               </p>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {vehicle
-                  .filter((obj) => obj.title.toLowerCase().includes(searchkey))
+                  .filter((obj) =>
+                    obj.title.toLowerCase().includes(searchkey)
+                  )
                   .map((vehicle, index) => (
                     <div key={vehicle.id || index}>
                       <CarCards vehicle={vehicle} />
-
+                    </div>
+                  ))}
+              </div>
+            </div>
           </div>
-        ))}
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
         </div>
       </main>
-      <Footer/>
+      <Footer />
     </>
   );
 }
 
 export default Home;
-
-
-
-
-
-
-
-
-
-
-
-// <div className="inner_container">
-//             <p className="inner_heading font-serif text-3xl pb-5 ">
-//               The Most Searched Vehicles
-//             </p>
-//             <div className="card_box flex flex-wrap gap-6 ">
-//             {
-//               vehicle.filter((obj) => obj.title.toLowerCase().includes(searchkey)).map((vehicle, index) => (
-//               <div key={vehicle.id || index} className="w-50%">
-//                 <CarCards vehicle={vehicle} />
-//                 </div>
-//               ))}
-//             </div>
-            
-//           </div>
