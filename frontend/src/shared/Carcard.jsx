@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 // import { Card, CardBody } from 'reactstrap';
 import PropTypes from 'prop-types';
+import './carcard.css'
+
 
 const CarCard = ({ id, vehicle }) => {
   const { imageUrl, title, price } = vehicle;

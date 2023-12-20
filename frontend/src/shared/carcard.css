@@ -5,6 +5,10 @@
     
     
 }
+.car_box {
+    width: 295px;
+    height: auto;
+}
 
 .car_img img{
     width: 500px ;

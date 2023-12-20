@@ -19,10 +19,11 @@ function Home() {
         <MainHeader />
         {/* <FilterPage/> */}
         <div className="hero-section">
-          <div className="img-section">
-            <img src={heroimg1} alt="" className="img-hero-section" />
+          <div className="img-section ">
+            <img src={heroimg1} alt="" className="img-hero-section" style={{width:'1550px'}} />
           </div>
 
+<<<<<<< HEAD
           <div className="ml-3 mr-3 my-4 p-4">
   <div className="border rounded-lg border-gray-300 p-6 flex-wrap">
     <p className="font-serif text-3xl pb-5">
@@ -34,6 +35,20 @@ function Home() {
         .map((vehicle, index) => (
           <div key={vehicle.id || index}>
             <CarCards vehicle={vehicle} />
+=======
+          <div className="mx-auto max-w-7xl px-4">
+            <div className="border rounded-lg border-gray-300 mt-5 p-4">
+              <p className="font-serif text-3xl pb-5">
+                The Most Searched Vehicles
+              </p>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                {vehicle
+                  .filter((obj) => obj.title.toLowerCase().includes(searchkey))
+                  .map((vehicle, index) => (
+                    <div key={vehicle.id || index}>
+                      <CarCards vehicle={vehicle} />
+
+>>>>>>> eb197a6d14d6857767de021c6a3a3c01f1ffb4f8
           </div>
         ))}
     </div>

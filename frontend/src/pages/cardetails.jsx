@@ -82,17 +82,7 @@ function Cardetails() {
                 </div>
 
 
-                <div className="vehicle_f_details text-left mt-5">
-                    <div className="vehicle_name ">
-                        <p> Maruthi Price</p>
-                    </div>
-                    <div className="vehicle-para mr-72 mt-3">
-                        <p>Rolls-Royce Cullinan price for the base model is Rs. 6.95 Crore (Avg. ex-showroom). Cullinan price for 1 variant is listed below.</p>
-                        <p>Rolls-Royce Cullinan price for the base model is Rs. 6.95 Crore (Avg. ex-showroom). Cullinan price for 1 variant is listed below.</p>
-                        <p>Rolls-Royce Cullinan price for the base model is Rs. 6.95 Crore (Avg. ex-showroom). Cullinan price for 1 variant is listed below.</p>
-                        <p>Rolls-Royce Cullinan price for the base model is Rs. 6.95 Crore (Avg. ex-showroom). Cullinan price for 1 variant is listed below.</p>
-                    </div>
-                </div>
+              
 
         </div>
     </div>

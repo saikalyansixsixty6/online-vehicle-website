@@ -1,9 +1,10 @@
 .container{
     background-color: rgb(255, 255, 255);
     border-bottom: 2px solid rgb(231, 219, 219);
-    max-width: -webkit-fill-available;
+    
       
   }
+  
   
   .logo img{
       width: 160px;
@@ -101,7 +102,8 @@
       background-color: white;
      
     } 
-    /* .dropdown{
-      position: absolute !important;
-      display: block !important;
-    } */
+    .rounded-dropdown:hover .dropdown-content {
+      display: block;
+      position: absolute;
+    }
+   
