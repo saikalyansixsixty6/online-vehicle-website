@@ -6,7 +6,8 @@ import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
-
+import {setDoc,collection,doc} from "firebase/firestore";
+import { fireDB } from "../utils/firebase";
 
 
 const Authentication = () => {
@@ -41,6 +42,18 @@ const Authentication = () => {
              }).then(() => {
               const {uid,email,displayName,photoURL} = auth.currentUser;
               dispatch(addUser({uid:uid,email:email,displayName:displayName,photoURL:photoURL}))
+              
+              const setUserData = async (user) => {
+                try {
+                  const docRef = doc(collection(fireDB, 'users'));
+              
+                  await setDoc(docRef, user);
+                  console.log('User data added successfully!');
+                } catch (error) {
+                  console.error('Error adding user data: ', error);
+                }
+              };
+              setUserData(user)
               console.log(user)
             navigate("/home")
            }).catch((error) => {

@@ -23,8 +23,8 @@ function Home() {
             <img src={heroimg1} alt="" className="img-hero-section" />
           </div>
 
-          <div className="mx-auto max-w-7xl px-4">
-  <div className="border rounded-lg border-gray-300 p-4">
+          <div className="ml-3 mr-3 my-4 p-4">
+  <div className="border rounded-lg border-gray-300 p-6 flex-wrap">
     <p className="font-serif text-3xl pb-5">
       The Most Searched Vehicles
     </p>

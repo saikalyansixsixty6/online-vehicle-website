@@ -153,7 +153,7 @@ const MyState = (props) => {
         setLoading(false)
       });
       setUser(usersArray);
-      console.log(usersArray)
+      console.log("users",usersArray)
       setLoading(false);
     } catch (error) {
       console.log(error)

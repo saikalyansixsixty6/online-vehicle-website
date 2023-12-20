@@ -131,7 +131,7 @@ const MainHeader = ()=>{
                 
                   <div  className="rounded-full h-12 w-12 bg-black text-white font-bold text-xl p-2" onClick={ toggleDropdown1}>
                    
-                    {User.email.charAt(0).toUpperCase()}
+                    {User?.email?.charAt(0).toUpperCase()}
                     {/* <FontAwesomeIcon icon={faCaretDown} onClick={user ? toggleDropdown1 : undefined} className='search-icon-svg mt-4 w-6 h-6 ml-0'/> */}
                   </div>
                   <FontAwesomeIcon icon={faComment}  className="user-chat mt-2 w-8 h-8" />
