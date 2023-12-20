@@ -105,7 +105,7 @@ const MainHeader = () => {
             <p className='language mt-4'> ENGLISH </p>
             <FontAwesomeIcon icon={faCaretDown} className='search-icon-svg mt-4 w-6 h-6 ml-0' />
 
-<<<<<<< HEAD
+
           {user ? (
                 <>
                 
@@ -113,12 +113,11 @@ const MainHeader = () => {
                    
                     {User?.email?.charAt(0).toUpperCase()}
                     {/* <FontAwesomeIcon icon={faCaretDown} onClick={user ? toggleDropdown1 : undefined} className='search-icon-svg mt-4 w-6 h-6 ml-0'/> */}
-=======
             {user ? (
               <> <div className="group rounded-dropdown">
                   <div className="rounded-full h-12 w-12 bg-black text-white font-bold text-xl p-2">
                     {User.email.charAt(0).toUpperCase()}
->>>>>>> eb197a6d14d6857767de021c6a3a3c01f1ffb4f8
+
                   </div>
                 <div className="dropdown-content hidden mt-2 -ml-3  bg-white shadow-lg rounded-md">
                   <ul>
