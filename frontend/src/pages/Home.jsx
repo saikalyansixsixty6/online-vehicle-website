@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import heroimg1 from '../Assets/images/heroimg1.png';
-import '../pages/Home.css';
+
 
 import CarCards from '../shared/Carcard';
 import MyContext from '../context/MyContext';

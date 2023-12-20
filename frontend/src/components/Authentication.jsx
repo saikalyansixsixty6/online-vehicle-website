@@ -64,7 +64,7 @@ const Authentication = () => {
               };
               setUserData(userDet)
               console.log(user)
-            navigate("/home")
+            navigate("/")
            }).catch((error) => {
               setErrorMessage(error.message)
           });
@@ -97,7 +97,7 @@ const Authentication = () => {
            // Signed in 
            const user = userCredential.user;
               console.log(user)
-              navigate("/home")
+              navigate("/")
             })
           .catch((error) => {
               const errorCode = error.code;
