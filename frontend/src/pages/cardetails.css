@@ -28,7 +28,7 @@
 }
 .price span{
     font-weight: 700;
-    font-size: 26px;
+    font-size: 20px;
     height: 100%;
     font-family: LatoGoogle,Lato,LatoWeb,sans-serif;
     color: #484848;
@@ -40,7 +40,7 @@ button{
     font-family: 'Open Sans', sans-serif;
     font-size: 18.5px;
     font-weight: 670;
-    margin-top: 120px;
+    margin-top: 130px;
     background-color:#e53012;
     color: rgb(251, 248, 248);
 }

@@ -11,6 +11,7 @@ import { removeUser } from "../../utils/userSlice";
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import MyContext from "../../context/MyContext";
 import Logo from '../../utils/vehicleMart.jpeg'
+import ChatPopup from "../../pages/Chatpopup";
 
 
 
@@ -24,6 +25,7 @@ const MainHeader = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [isSticky, setSticky] = useState(false);
   const User = auth.currentUser;
+  const [isChatOpen, setChatOpen] = useState(false);
 
   const user = useSelector((store) => store.user);
 
@@ -43,19 +45,27 @@ const MainHeader = () => {
   };
 
   
-
-  const closeDropdownsOnClickOutside = (event) => {
-    if (!event.target.closest('.rounded') && !event.target.closest('.rx-dropdown-menu') ) {
-      setDropdownOpen(false);
-    }
+  const openChat = () => {
+    console.log('Opening chat...');
+    setChatOpen(true);
   };
 
-  useEffect(() => {
-    document.addEventListener('click', closeDropdownsOnClickOutside);
-    return () => {
-      document.removeEventListener('click', closeDropdownsOnClickOutside);
-    };
-  }, []);
+  const closeChat = () => {
+    console.log('Closing chat...');
+    setChatOpen(false);
+  };
+  // const closeDropdownsOnClickOutside = (event) => {
+  //   if (!event.target.closest('.rounded') && !event.target.closest('.rx-dropdown-menu') ) {
+  //     setDropdownOpen(false);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   document.addEventListener('click', closeDropdownsOnClickOutside);
+  //   return () => {
+  //     document.removeEventListener('click', closeDropdownsOnClickOutside);
+  //   };
+  // }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -111,7 +121,8 @@ const MainHeader = () => {
                   </ul>
                 </div>
                </div>
-                <FontAwesomeIcon onClick={toggleDropdown1} icon={faComment} className="user-chat mt-2 w-8 h-8" />
+                <FontAwesomeIcon onClick={openChat} icon={faComment} className="user-chat mt-2 w-8 h-8" />
+                {isChatOpen && <ChatPopup onClose={closeChat} />} 
                 <FaSignInAlt className="h-10 w-10 mx-auto" onClick={handleSignOut} />
                
               </>
