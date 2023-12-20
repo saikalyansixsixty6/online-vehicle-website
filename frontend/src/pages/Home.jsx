@@ -23,19 +23,29 @@ function Home() {
             <img src={heroimg1} alt="" className="img-hero-section" />
           </div>
 
-          <div className="inner_container">
-            <p className="inner_heading font-serif text-3xl pb-5 ">
-              The most searched cars
-            </p>
-            <div className="card_box flex flex-wrap ml-20">
-            {
-              vehicle.filter((obj) => obj.title.toLowerCase().includes(searchkey)).map((vehicle, index) => (
-              <div key={vehicle.id || index} className="w-1/4 ">
-                <CarCards vehicle={vehicle} />
-                </div>
-              ))}
-            </div>
+          <div className="mx-auto max-w-7xl px-4">
+            <div className="border rounded-lg border-gray-300 p-4">
+              <p className="font-serif text-3xl pb-5">
+                The Most Searched Vehicles
+              </p>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                {vehicle
+                  .filter((obj) => obj.title.toLowerCase().includes(searchkey))
+                  .map((vehicle, index) => (
+                    <div key={vehicle.id || index}>
+                      <CarCards vehicle={vehicle} />
+
           </div>
+        ))}
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
         </div>
       </main>
       <Footer/>
@@ -44,3 +54,28 @@ function Home() {
 }
 
 export default Home;
+
+
+
+
+
+
+
+
+
+
+
+// <div className="inner_container">
+//             <p className="inner_heading font-serif text-3xl pb-5 ">
+//               The Most Searched Vehicles
+//             </p>
+//             <div className="card_box flex flex-wrap gap-6 ">
+//             {
+//               vehicle.filter((obj) => obj.title.toLowerCase().includes(searchkey)).map((vehicle, index) => (
+//               <div key={vehicle.id || index} className="w-50%">
+//                 <CarCards vehicle={vehicle} />
+//                 </div>
+//               ))}
+//             </div>
+            
+//           </div>

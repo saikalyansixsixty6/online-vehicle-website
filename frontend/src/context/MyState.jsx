@@ -141,32 +141,34 @@ const MyState = (props) => {
     }
   }
 
-  // const [user, setUser] = useState([]);
+  const [user, setUser] = useState([]);
 
-  // const getUserData = async () => {
-  //   setLoading(true)
-  //   try {
-  //     const result = await getDocs(collection(fireDB, "users"))
-  //     const usersArray = [];
-  //     result.forEach((doc) => {
-  //       usersArray.push(doc.data());
-  //       setLoading(false)
-  //     });
-  //     setUser(usersArray);
-  //     console.log(usersArray)
-  //     setLoading(false);
-  //   } catch (error) {
-  //     console.log(error)
-  //     setLoading(false)
-  //   }
-  // }
+  const getUserData = async () => {
+    setLoading(true)
+    try {
+      const result = await getDocs(collection(fireDB, "users"))
+      const usersArray = [];
+      result.forEach((doc) => {
+        usersArray.push(doc.data());
+        setLoading(false)
+      });
+      setUser(usersArray);
+      console.log(usersArray)
+      setLoading(false);
+    } catch (error) {
+      console.log(error)
+      setLoading(false)
+    }
+  }
+
   const [searchkey, setSearchkey] = useState('')
   const [filterType, setFilterType] = useState('')
   const [filterPrice,setFilterPrice] = useState('')
   
   useEffect(() => {
     getVehicleData();
-    getRequestData()
+    getRequestData();
+    getUserData();
   }, []);
 
 
@@ -177,7 +179,7 @@ const MyState = (props) => {
 
     
   return (
-    <MyContext.Provider value={{vehicles,setVehicles,edithandle,vehicle,setVehicle,updateVehicle,deleteVehicle,addVehicle,loading,request,setRequest,searchkey,setSearchkey,
+    <MyContext.Provider value={{vehicles,setVehicles,edithandle,vehicle,user,setUser,setVehicle,updateVehicle,deleteVehicle,addVehicle,loading,request,setRequest,searchkey,setSearchkey,
     filterType,setFilterType,filterPrice,setFilterPrice}}>
       {props.children}
     </MyContext.Provider>
