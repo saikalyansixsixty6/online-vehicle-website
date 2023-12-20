@@ -255,7 +255,7 @@ const AdminDashBoardTab = () => {
                                         </tr>
                                     </thead>
                                    {user.map((item,index)=>{
-                                    const {name,uid,email} = item;
+                                    const {displayName,uid,email} = item;
                                     return(
                                         <tbody key={index}>
                                         <tr className="bg-gray-50 border-b  dark:border-gray-700" >
@@ -263,7 +263,7 @@ const AdminDashBoardTab = () => {
                                                {index + 1}.
                                             </td>
                                             <td className="px-6 py-4 text-black " >
-                                                {name}
+                                                {displayName}
                                             </td>
                                             <td className="px-6 py-4 text-black " >
                                                 {email}
