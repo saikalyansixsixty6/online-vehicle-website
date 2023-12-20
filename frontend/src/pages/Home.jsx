@@ -19,12 +19,12 @@ function Home() {
         <MainHeader />
         {/* <FilterPage/> */}
         <div className="hero-section">
-          <div className="img-section">
-            <img src={heroimg1} alt="" className="img-hero-section" />
+          <div className="img-section  max-w-100%">
+            <img src={heroimg1} alt="" className="img-hero-section mx-auto max-w-fit" />
           </div>
 
           <div className="mx-auto max-w-7xl px-4">
-            <div className="border rounded-lg border-gray-300 p-4">
+            <div className="border rounded-lg border-gray-300 mt-5 p-4">
               <p className="font-serif text-3xl pb-5">
                 The Most Searched Vehicles
               </p>
