@@ -73,7 +73,7 @@ function Cardetails() {
                     <div className="vehicle_name ">
                         <p> {title} Price</p>
                     </div>
-                    <div className="vehicle-para mr-72 mt-3">
+                    <div className="vehicle-para mr-7 mt-3">
                         <p>Rolls-Royce Cullinan price for the base model is Rs. 6.95 Crore (Avg. ex-showroom). Cullinan price for 1 variant is listed below.</p>
                         <p>Rolls-Royce Cullinan price for the base model is Rs. 6.95 Crore (Avg. ex-showroom). Cullinan price for 1 variant is listed below.</p>
                         <p>Rolls-Royce Cullinan price for the base model is Rs. 6.95 Crore (Avg. ex-showroom). Cullinan price for 1 variant is listed below.</p>

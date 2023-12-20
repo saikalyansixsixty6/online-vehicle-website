@@ -19,11 +19,11 @@ function Home() {
         <MainHeader />
         {/* <FilterPage/> */}
         <div className="hero-section">
-          <div className="img-section">
+          <div className="img-section ">
             <img
               src={heroimg1}
               alt=""
-              className="img-hero-section max-w-full h-auto"
+              className="img-hero-section max"  style={{width:'1550px'}}
             />
           </div>
 
