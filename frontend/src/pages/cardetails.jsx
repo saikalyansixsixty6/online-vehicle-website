@@ -49,7 +49,7 @@ function Cardetails() {
                 <FontAwesomeIcon icon={faStar} />
                 <FontAwesomeIcon icon={faStar} />
             </div>
-            <div className="vehicle_image_details  flex flex-wrap gap-6">
+            <div className="vehicle_image_details gap-6">
                 <div className="vehicle_image">
                     <div className="image">
                         <img src={imageUrl} alt="car_image"  className='image_size '/>

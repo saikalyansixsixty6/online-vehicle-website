@@ -148,7 +148,7 @@ const MainHeader = () => {
         <p>Scooters</p>
         <p>Commercial & Other Vehcles</p>
       </div>
-    /</div>
+    </div>
      
    
   )

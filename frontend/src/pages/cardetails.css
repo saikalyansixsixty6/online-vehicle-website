@@ -18,6 +18,7 @@
 
 }
 .vehicle_image_details{
+    display: flex;
     margin-top: 23px;
     border: 1.5px solid rgb(223, 217, 217);
     padding-bottom: 30px;
