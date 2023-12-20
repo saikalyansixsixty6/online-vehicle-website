@@ -2,7 +2,7 @@ import "./MainHeader.css"
 // import Ellips from '../../Assets/images/img.png'
 import { useState,useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCaretDown,faUser,faComment,faAngleDown} from "@fortawesome/free-solid-svg-icons"
+import { faCaretDown,faUser,faComment} from "@fortawesome/free-solid-svg-icons"
 import Logo from "../../utils/vehicleMart.jpeg"
 import { Link, useNavigate} from "react-router-dom"
 import { auth } from "../../utils/firebase"
