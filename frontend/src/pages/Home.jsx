@@ -27,10 +27,10 @@ function Home() {
             <p className="inner_heading font-serif text-3xl pb-5 ">
               The most searched cars
             </p>
-            <div className="card_box flex flex-wrap gap-6 ">
+            <div className="card_box flex flex-wrap ml-20">
             {
               vehicle.filter((obj) => obj.title.toLowerCase().includes(searchkey)).map((vehicle, index) => (
-              <div key={vehicle.id || index} className="w-50%">
+              <div key={vehicle.id || index} className="w-1/4 ">
                 <CarCards vehicle={vehicle} />
                 </div>
               ))}
