@@ -66,14 +66,14 @@ const Footer = () => {
             <p className="text-sm">
               1234 Auto Avenue <br />
               City, State 12345 <br />
-              Email: info@yourautomart.com <br />
+              Email: info@vehiclemart.com <br />
               Phone: 1-800-AUTO-SALE
             </p>
           </div>
         </div>
         <hr className="my-8 border-gray-700" />
         <p className="text-sm text-center">
-          &copy; {new Date().getFullYear()} YourAutoMart. All rights reserved.
+          &copy; {new Date().getFullYear()} VehicleMart. All rights reserved.
         </p>
       </div>
     </footer>

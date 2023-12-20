@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 const AdminDashBoardTab = () => {
    const context = useContext(MyContext)
-   const {deleteVehicle,edithandle,vehicle,request} = context
+   const {deleteVehicle,edithandle,vehicle,user} = context
 
    const add = () => {
     window.location.href = '/addvehicle'
@@ -254,28 +254,28 @@ const AdminDashBoardTab = () => {
                                            
                                         </tr>
                                     </thead>
-                                   {/* {user.map((item,index)=>{
-                                    const {name,uid,email,date} = item;
+                                   {user.map((item,index)=>{
+                                    const {name,uid,email} = item;
                                     return(
                                         <tbody key={index}>
-                                        <tr className="bg-gray-50 border-b  dark:border-gray-700" style={{ backgroundColor: mode === 'dark' ? 'rgb(46 49 55)' : '', color: mode === 'dark' ? 'white' : '', }} >
-                                            <td className="px-6 py-4 text-black " style={{ color: mode === 'dark' ? 'white' : '' }}>
+                                        <tr className="bg-gray-50 border-b  dark:border-gray-700" >
+                                            <td className="px-6 py-4 text-black " >
                                                {index + 1}.
                                             </td>
-                                            <td className="px-6 py-4 text-black " style={{ color: mode === 'dark' ? 'white' : '' }}>
+                                            <td className="px-6 py-4 text-black " >
                                                 {name}
                                             </td>
-                                            <td className="px-6 py-4 text-black " style={{ color: mode === 'dark' ? 'white' : '' }}>
+                                            <td className="px-6 py-4 text-black " >
                                                 {email}
                                             </td>
-                                            <td className="px-6 py-4 text-black " style={{ color: mode === 'dark' ? 'white' : '' }}>
+                                            <td className="px-6 py-4 text-black " >
                                                 {uid}
                                             </td>
 
                                         </tr>
                                     </tbody>
                                     )
-                                   })} */}
+                                   })}
                                 </table>
                             </div>
                         </TabPanel>
