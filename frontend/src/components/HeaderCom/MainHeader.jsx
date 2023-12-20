@@ -104,15 +104,6 @@ const MainHeader = () => {
             </div>
             <p className='language mt-4'> ENGLISH </p>
             <FontAwesomeIcon icon={faCaretDown} className='search-icon-svg mt-4 w-6 h-6 ml-0' />
-
-
-          {user ? (
-                <>
-                
-                  <div  className="rounded-full h-12 w-12 bg-black text-white font-bold text-xl p-2" onClick={ toggleDropdown1}>
-                   
-                    {User?.email?.charAt(0).toUpperCase()}
-                    {/* <FontAwesomeIcon icon={faCaretDown} onClick={user ? toggleDropdown1 : undefined} className='search-icon-svg mt-4 w-6 h-6 ml-0'/> */}
             {user ? (
               <> <div className="group rounded-dropdown">
                   <div className="rounded-full h-12 w-12 bg-black text-white font-bold text-xl p-2">
@@ -143,7 +134,7 @@ const MainHeader = () => {
               />
             )}
 
-           
+           </div>
         </div>
       </div>
       <div className="header-category mt-5 pl-10 flex flex-wrap gap-16 pb-5">
@@ -157,8 +148,9 @@ const MainHeader = () => {
         <p>Scooters</p>
         <p>Commercial & Other Vehcles</p>
       </div>
-    </div>
-    </div>
+    /</div>
+     
+   
   )
   }
 
