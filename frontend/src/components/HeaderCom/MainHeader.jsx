@@ -83,7 +83,7 @@ const MainHeader = () => {
     <div className={`${isSticky ? 'sticky' : ''}`}>
       <div className='container border-b border-solid border-rose-300 mr-1 w-auto flex flex-wrap justify-between' >
         <div className="header flex flex-wrap">
-          <Link to="/home" >
+          <Link to="/" >
             <img src={Logo} alt="logo" className="h-12 m-4" />
           </Link>
         </div>
@@ -127,11 +127,11 @@ const MainHeader = () => {
                
               </>
             ) : (
-              <FontAwesomeIcon
-                onClick={toggleDropdown1}
+              <Link to='/signIn'><FontAwesomeIcon
+                
                 icon={faUser}
                 className="user-icon mt-2 w-8 h-8"
-              />
+              /></Link>
             )}
 
            </div>

@@ -22,11 +22,11 @@ const Body = () => {
 
   const appRouter = createBrowserRouter([
      {
-        path:"/",
+        path:"/signIn",
         element:<Authentication/>,
      },
      {
-        path:"/home",
+        path:"/",
         element:<Home/>,
      },
      {
@@ -44,7 +44,7 @@ const Body = () => {
      ,{
       path:"/car_details/:id",
       element:<Cardetails/>,
-     }
+     },
 
 
     ]);
