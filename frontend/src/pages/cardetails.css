@@ -17,16 +17,22 @@
     font-size: 35px;
 
 }
+.image{
+    height: 320px;
+    width:470px ;
+}
 .vehicle_image_details{
     display: flex;
+    height:auto;
+    width: 800px;
     margin-top: 23px;
     border: 1.5px solid rgb(223, 217, 217);
     padding-bottom: 30px;
 }
-.image_size{
+ .image_size{
     height: 320px ;
     width: 470px;
-}
+} 
 .price span{
     font-weight: 700;
     font-size: 20px;
