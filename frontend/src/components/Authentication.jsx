@@ -37,23 +37,32 @@ const Authentication = () => {
           .then((userCredential) => {
           
             const user = userCredential.user;
+            
             updateProfile(user, {
            displayName: name.current.value, photoURL: "https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png"
              }).then(() => {
               const {uid,email,displayName,photoURL} = auth.currentUser;
               dispatch(addUser({uid:uid,email:email,displayName:displayName,photoURL:photoURL}))
               
-              const setUserData = async (user) => {
+
+              const userDet = {
+                uid: uid,
+                email: email,
+                displayName: displayName,
+                photoURL: photoURL,
+                // Add other user details as needed
+              };
+              const setUserData = async (userDet) => {
                 try {
                   const docRef = doc(collection(fireDB, 'users'));
               
-                  await setDoc(docRef, user);
+                  await setDoc(docRef, userDet);
                   console.log('User data added successfully!');
                 } catch (error) {
                   console.error('Error adding user data: ', error);
                 }
               };
-              setUserData(user)
+              setUserData(userDet)
               console.log(user)
             navigate("/home")
            }).catch((error) => {
