@@ -133,7 +133,7 @@ const MyState = (props) => {
         setLoading(false)
       });
       setRequest(ordersArray);
-      console.log(ordersArray)
+      console.log("requests",ordersArray)
       setLoading(false);
     } catch (error) {
       console.log(error)
