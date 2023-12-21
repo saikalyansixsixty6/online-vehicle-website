@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 const AdminDashBoardTab = () => {
    const context = useContext(MyContext)
-   const {deleteVehicle,edithandle,vehicle,user} = context
+   const {deleteVehicle,edithandle,vehicle,user,request} = context
 
    const add = () => {
     window.location.href = '/addvehicle'
@@ -137,102 +137,56 @@ const AdminDashBoardTab = () => {
                         </TabPanel>
 
                         <TabPanel>
-                            {/* <Order order={order} setOrder={setOrder} setLoading={setLoading} /> */}
-                            {/* <div className="relative overflow-x-auto mb-16">
-                                <h1 className=' text-center mb-5 text-3xl font-semibold underline' >Order Details</h1>
-
-                                {order.map((allorder,index)=>{
-                                    return(<table key={index} className="w-full text-sm text-left text-gray-500 dark:text-gray-400" >
+                             
+                            <div className="relative overflow-x-auto mb-10">
+                                <h1 className=' text-center mb-5 text-3xl font-semibold underline' >User Details</h1>
+                                <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                                     <thead className="text-xs text-black uppercase bg-gray-200 "  >
                                         <tr>
                                             <th scope="col" className="px-6 py-3">
-                                                Payment Id
+                                                S.No
                                             </th>
-                                            <th scope="col" className="px-6 py-3">
-                                                Image
-                                            </th>
-                                            <th scope="col" className="px-6 py-3">
-                                                Title
-                                            </th>
-                                            <th scope="col" className="px-6 py-3">
-                                                Price
-                                            </th>
-                                            <th scope="col" className="px-6 py-3">
-                                                Category
-                                            </th>
+
                                             <th scope="col" className="px-6 py-3">
                                                 Name
-                                            </th>
-                                            <th scope="col" className="px-6 py-3">
-                                                Address
-                                            </th>
-                                            <th scope="col" className="px-6 py-3">
-                                                Pincode
-                                            </th>
-                                            <th scope="col" className="px-6 py-3">
-                                                Phone Number
                                             </th>
                                             <th scope="col" className="px-6 py-3">
                                                 Email
                                             </th>
                                             <th scope="col" className="px-6 py-3">
-                                                Date
+                                                Test Drive Requested For
                                             </th>
+                                           
                                         </tr>
                                     </thead>
-                                    {allorder.cartItems.map((item,index)=>{
-                                        // console.log(allorder)
-                                        const {title,category,imageUrl,price} = item;
-                                        return(
-                                            <tbody key={index}>
-                                        <tr  className="bg-gray-50 border-b  dark:border-gray-700"  >
+                                   {request.map((item,index)=>{
+                                    const {displayName,email,title} = item;
+                                    return(
+                                        <tbody key={index}>
+                                        <tr className="bg-gray-50 border-b  dark:border-gray-700" >
                                             <td className="px-6 py-4 text-black " >
-                                                {allorder.paymentId}
+                                               {index + 1}.
                                             </td>
-                                            <th scope="row" className="px-6 py-4 font-medium text-black whitespace-nowrap">
-                                                <img className='w-16' src={imageUrl} alt="img" />
-                                            </th>
+                                            <td className="px-6 py-4 text-black " >
+                                                {displayName}
+                                            </td>
+                                            <td className="px-6 py-4 text-black " >
+                                                {email}
+                                            </td>
                                             <td className="px-6 py-4 text-black " >
                                                 {title}
                                             </td>
-                                            <td className="px-6 py-4 text-black " >
-                                                ₹{price}
-                                            </td>
-                                            <td className="px-6 py-4 text-black " >
-                                               {category}
-                                            </td>
-
-                                            <td className="px-6 py-4 text-black " >
-                                                {allorder.addressInfo.name}
-                                            </td>
-                                            <td className="px-6 py-4 text-black " >
-                                                {allorder.addressInfo.address}
-                                            </td>
-                                            <td className="px-6 py-4 text-black " >
-                                            {allorder.addressInfo.pincode}
-                                            </td>
-                                            <td className="px-6 py-4 text-black " >
-                                            {allorder.addressInfo.phoneNumber}
-                                            </td>
-                                            <td className="px-6 py-4 text-black " >
-                                                {allorder.email}
-                                            </td>
-                                            <td className="px-6 py-4 text-black " >
-                                               {allorder.date}
-                                            </td>
 
                                         </tr>
-
                                     </tbody>
-                                        )
-                                    })}
-                                </table>)
-                                })}
-                            </div> */}
+                                    )
+                                   })}
+                                </table>
+                            </div>
                         </TabPanel>
 
                         <TabPanel>
-                            {/* <User addressInfo={addressInfo} setAddressInfo={setAddressInfo} setLoading={setLoading} /> */}
+                             
                             <div className="relative overflow-x-auto mb-10">
                                 <h1 className=' text-center mb-5 text-3xl font-semibold underline' >User Details</h1>
                                 <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
