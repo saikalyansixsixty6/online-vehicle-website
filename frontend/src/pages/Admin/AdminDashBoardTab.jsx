@@ -30,7 +30,7 @@ const AdminDashBoardTab = () => {
                             <Tab>
                                 <button type="button" className="font-medium border-b-2 border-pink-500 bg-[#605d5d12] text-pink-500  hover:shadow-pink-700  rounded-lg text-xl shadow-[inset_0_0_8px_rgba(0,0,0,0.6)]    px-5 py-1.5 text-center ">
                                     <div className="flex gap-2 items-center">
-                                        <AiFillShopping /> Requests
+                                        <AiFillShopping /> Test Drive Requests
                                     </div>
                                 </button>
                             </Tab>

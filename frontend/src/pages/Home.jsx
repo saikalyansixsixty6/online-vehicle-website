@@ -5,7 +5,7 @@ import React, { useContext } from 'react';
 import CarCards from '../shared/Carcard';
 import MyContext from '../context/MyContext';
 import MainHeader from '../components/HeaderCom/MainHeader';
-// import FilterPage from '../components/filters/FilterPage';
+
 import Footer from '../components/Footer/Footer';
 
 function Home() {
@@ -19,11 +19,11 @@ function Home() {
         <MainHeader />
         {/* <FilterPage/> */}
         <div className="hero-section">
-          <div className="img-section ">
+          <div className=" ">
             <img
-              src="https://img.pikbest.com/background/20220119/car-banner-background_6224454.jpg!sw800"
+              src="https://t4.ftcdn.net/jpg/02/82/00/75/240_F_282007508_wdCUP7hUMNK1Cuzj7XmOcFmzyzJ0Nnp9.jpg"
               alt=""
-              className="img-hero-section max"  style={{width:'1550px'}}
+              className="object-cover object-center h-full w-full"  
             />
           </div>
 

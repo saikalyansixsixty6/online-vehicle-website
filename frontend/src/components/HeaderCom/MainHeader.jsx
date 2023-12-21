@@ -22,7 +22,7 @@ const MainHeader = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [isDropdownOpen, setDropdownOpen] = useState(false);
+  
   const [isSticky, setSticky] = useState(false);
   const User = auth.currentUser;
   const [isChatOpen, setChatOpen] = useState(false);
@@ -38,11 +38,7 @@ const MainHeader = () => {
     });
   };
 
-  const toggleDropdown1 = () => {
-    setDropdownOpen(!isDropdownOpen);
-    console.log('succes0')
-   
-  };
+  
 
   
   const openChat = () => {
@@ -54,18 +50,7 @@ const MainHeader = () => {
     console.log('Closing chat...');
     setChatOpen(false);
   };
-  // const closeDropdownsOnClickOutside = (event) => {
-  //   if (!event.target.closest('.rounded') && !event.target.closest('.rx-dropdown-menu') ) {
-  //     setDropdownOpen(false);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   document.addEventListener('click', closeDropdownsOnClickOutside);
-  //   return () => {
-  //     document.removeEventListener('click', closeDropdownsOnClickOutside);
-  //   };
-  // }, []);
+  
 
   useEffect(() => {
     const handleScroll = () => {
@@ -89,7 +74,7 @@ const MainHeader = () => {
         </div>
         <div className="header2 flex flex-wrap mt-3 ">
           <div className="search-vehicle flex flex-wrap gap-5 mr-2 cursor-pointer">
-            <div className="flex items-center border-2 border-solid border-black rounded-md p-2 w-100 h-12">
+            <div className="flex items-center border-2 border-solid border-black rounded-md p-2 w-160 h-12">
               <input
                 type="text"
                 placeholder="Search for vehicles"
@@ -115,9 +100,11 @@ const MainHeader = () => {
                     <li>
                       <Link to="/profile"  className="block px-4 py-2 text-gray-800 hover:bg-rose-200 hover:text-white">Profile</Link>
                     </li>
+
                     <li>
                       <Link to="/admin"  className="block px-4 py-2 text-gray-800 hover:bg-rose-200 hover:text-white">Admin</Link>
                     </li>
+
                   </ul>
                 </div>
                </div>
@@ -137,17 +124,7 @@ const MainHeader = () => {
            </div>
         </div>
       </div>
-      <div className="header-category mt-5 pl-10 flex flex-wrap gap-16 pb-5">
-        <div className="categories  relative category">
-          <p className="cursor-pointer">
-            All Categories :
-          </p>
-        </div>
-        <p>Cars</p>
-        <p>Motor Cycles</p>
-        <p>Scooters</p>
-        <p>Commercial & Other Vehcles</p>
-      </div>
+      
     </div>
      
    
