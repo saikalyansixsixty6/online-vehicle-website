@@ -1,16 +1,12 @@
 
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+// import { createBrowserRouter } from "react-router-dom";
 import {onAuthStateChanged } from "firebase/auth";
 import { useEffect } from "react";
 import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
-import Home from "../pages/Home";
-import Authentication from "./Authentication";
-import AddVehicle from "../pages/Admin/AddVehicle";
-import UpdateVehicle from "../pages/Admin/UpdateVehicle";
-import AdminDashBoardTab from "../pages/Admin/AdminDashBoardTab";
-import Cardetails from "../pages/cardetails";
+
+import AppRouter from "./Routes/AppRouter";
 
 
 
@@ -20,44 +16,44 @@ import Cardetails from "../pages/cardetails";
 const Body = () => {
 
   const dispatch = useDispatch()
-  const adminEmail = "saikalyan123@gmail.com";
-  const userEmail = auth.currentUser.email;
-  const isAdmin = adminEmail === userEmail;
+  // const adminEmail = "saikalyan123@gmail.com";
+  // const userEmail = auth.currentUser.email;
+  // const isAdmin = adminEmail === userEmail;
 
   
   
 
 
-const appRouter = createBrowserRouter([
-   {
-      path:"/signIn",
-      element:<Authentication/>,
-   },
-   {
-      path:"/",
-      element:<Home/>,
-   },
+// const appRouter = createBrowserRouter([
+//    {
+//       path:"/signIn",
+//       element:<Authentication/>,
+//    },
+//    {
+//       path:"/",
+//       element:<Home/>,
+//    },
    
-    {
-      path:"/admin",
-      element: <AdminDashBoardTab />,
-    },
+//     {
+//       path:"/admin",
+//       element: <AdminDashBoardTab />,
+//     },
              
     
    
-   {
-    path:"/addvehicle",
-    element:<AddVehicle/>,
-   },
-   {
-    path:"/updatevehicle",
-    element:<UpdateVehicle/>,
-   }
-   ,{
-    path:"/car_details/:id",
-    element:<Cardetails/>,
-   },
-   ]);
+//    {
+//     path:"/addvehicle",
+//     element:<AddVehicle/>,
+//    },
+//    {
+//     path:"/updatevehicle",
+//     element:<UpdateVehicle/>,
+//    }
+//    ,{
+//     path:"/car_details/:id",
+//     element:<Cardetails/>,
+//    },
+//    ]);
 
 
   
@@ -92,7 +88,7 @@ const appRouter = createBrowserRouter([
     <div>
 
       
-             <RouterProvider router={appRouter}/>
+             <AppRouter/>
        
 
      

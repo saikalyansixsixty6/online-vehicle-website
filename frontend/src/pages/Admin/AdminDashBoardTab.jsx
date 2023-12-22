@@ -6,6 +6,7 @@ import { AiFillShopping} from 'react-icons/ai';
 import { FaUser, FaCartPlus } from 'react-icons/fa';
 import { MdOutlineProductionQuantityLimits } from 'react-icons/md'
 import { Link } from 'react-router-dom';
+import MainHeader from '../../components/HeaderCom/MainHeader';
 
 const AdminDashBoardTab = () => {
    const context = useContext(MyContext)
@@ -18,7 +19,9 @@ const AdminDashBoardTab = () => {
 
 
   return (
+    
     <div className="container mx-auto">
+        <MainHeader/>
                 <div className="tab container mx-auto ">
                     <Tabs defaultIndex={0} className=" " >
                         <TabList className="md:flex md:space-x-8 bg-  grid grid-cols-2 text-center gap-4   md:justify-center mb-10 ">
