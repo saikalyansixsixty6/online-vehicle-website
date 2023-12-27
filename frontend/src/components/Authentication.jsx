@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import {setDoc,collection,doc} from "firebase/firestore";
 import { fireDB } from "../utils/firebase";
+import Logo from "../utils/constants";
 
 
 const Authentication = () => {
@@ -115,7 +116,8 @@ const Authentication = () => {
       
       
      
-      <form onSubmit={(e)=>e.preventDefault()} className="w-3/12 absolute p-12 bg-black my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80">
+      <form onSubmit={(e)=>e.preventDefault()} className="w-3/12 absolute p-12 bg-black my-10 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80">
+        <img src={Logo} alt="website-logo" />
       <h1 className="text-3xl font-bold py-4">{login? "SignIn":"SignUp"}</h1>
         { !login && 
          (
@@ -149,7 +151,7 @@ const Authentication = () => {
 
           <button
             type="submit"
-            className="p-2 my-6 bg-red-700 rounded-lg h-10 w-full text-white"
+            className="mx-auto p-2 my-6 bg-red-700 rounded-lg h-10 w-full text-white"
             onClick={handleClickButton}
           >
            {login? "SignIn":"SignUp"}

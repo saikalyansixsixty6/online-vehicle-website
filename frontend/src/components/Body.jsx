@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 
-// import { createBrowserRouter } from "react-router-dom";
+
 import {onAuthStateChanged } from "firebase/auth";
 import { useEffect } from "react";
 import { auth } from "../utils/firebase";
@@ -16,46 +17,7 @@ import AppRouter from "./Routes/AppRouter";
 const Body = () => {
 
   const dispatch = useDispatch()
-  // const adminEmail = "saikalyan123@gmail.com";
-  // const userEmail = auth.currentUser.email;
-  // const isAdmin = adminEmail === userEmail;
-
   
-  
-
-
-// const appRouter = createBrowserRouter([
-//    {
-//       path:"/signIn",
-//       element:<Authentication/>,
-//    },
-//    {
-//       path:"/",
-//       element:<Home/>,
-//    },
-   
-//     {
-//       path:"/admin",
-//       element: <AdminDashBoardTab />,
-//     },
-             
-    
-   
-//    {
-//     path:"/addvehicle",
-//     element:<AddVehicle/>,
-//    },
-//    {
-//     path:"/updatevehicle",
-//     element:<UpdateVehicle/>,
-//    }
-//    ,{
-//     path:"/car_details/:id",
-//     element:<Cardetails/>,
-//    },
-//    ]);
-
-
   
   
     

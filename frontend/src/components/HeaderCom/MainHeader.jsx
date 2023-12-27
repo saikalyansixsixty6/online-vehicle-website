@@ -10,9 +10,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeUser } from "../../utils/userSlice";
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import MyContext from "../../context/MyContext";
-import Logo from '../../utils/vehicleMart.jpeg'
 import ChatPopup from "../../pages/Chatpopup";
-
+import Logo from "../../utils/constants";
 
 
 const MainHeader = () => {
@@ -72,6 +71,12 @@ const MainHeader = () => {
             <img src={Logo} alt="logo" className="h-12 m-4" />
           </Link>
         </div>
+        <div className="flex justify-end ml-auto" >
+    <ul className="flex m-6">
+      <li><Link to="/" className="text-black hover:bg-gray-300 font-bold p-3 rounded-lg ">Home</Link></li>
+      <li><Link to="/admin" className="text-black hover:bg-gray-300 font-bold p-3 rounded-lg">Admin</Link></li>
+    </ul>
+  </div>
         <div className="header2 flex flex-wrap mt-3 ">
           <div className="search-vehicle flex flex-wrap gap-5 mr-2 cursor-pointer">
             <div className="flex items-center border-2 border-solid border-black rounded-md p-2 w-160 h-12">
@@ -95,7 +100,7 @@ const MainHeader = () => {
                     {User.email.charAt(0).toUpperCase()}
 
                   </div>
-                <div className="dropdown-content hidden mt-2 -ml-3  bg-white shadow-lg rounded-md">
+                {/* <div className="dropdown-content hidden mt-2 -ml-3  bg-white shadow-lg rounded-md">
                   <ul>
                     <li>
                       <Link to="/profile"  className="block px-4 py-2 text-gray-800 hover:bg-rose-200 hover:text-white">Profile</Link>
@@ -106,7 +111,7 @@ const MainHeader = () => {
                     </li>
 
                   </ul>
-                </div>
+                </div> */}
                </div>
                 <FontAwesomeIcon onClick={openChat} icon={faComment} className="user-chat mt-2 w-8 h-8" />
                 {isChatOpen && <ChatPopup onClose={closeChat} />} 
