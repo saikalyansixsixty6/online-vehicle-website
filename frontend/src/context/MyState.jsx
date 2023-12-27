@@ -164,6 +164,7 @@ const MyState = (props) => {
   const [searchkey, setSearchkey] = useState('')
   const [filterType, setFilterType] = useState('')
   const [filterPrice,setFilterPrice] = useState('')
+  const [userCard,setUserCard] = useState(false);
   
   useEffect(() => {
     getVehicleData();
@@ -180,7 +181,7 @@ const MyState = (props) => {
     
   return (
     <MyContext.Provider value={{vehicles,setVehicles,edithandle,vehicle,user,setUser,setVehicle,updateVehicle,deleteVehicle,addVehicle,loading,request,setRequest,searchkey,setSearchkey,
-    filterType,setFilterType,filterPrice,setFilterPrice}}>
+    filterType,setFilterType,filterPrice,setFilterPrice,userCard,setUserCard}}>
       {props.children}
     </MyContext.Provider>
   )

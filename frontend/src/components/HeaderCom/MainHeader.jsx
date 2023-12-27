@@ -12,12 +12,13 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import MyContext from "../../context/MyContext";
 import ChatPopup from "../../pages/Chatpopup";
 import Logo from "../../utils/constants";
+import ProfilePage from "../../pages/Profile/ProfilePage";
 
 
 const MainHeader = () => {
 
   const context = useContext(MyContext);
-  const { searchkey, setSearchkey } = context;
+  const { searchkey, setSearchkey,userCard,setUserCard } = context;
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -94,24 +95,19 @@ const MainHeader = () => {
             </div>
             <p className='language mt-4'> ENGLISH </p>
             <FontAwesomeIcon icon={faCaretDown} className='search-icon-svg mt-4 w-6 h-6 ml-0' />
+            
             {user ? (
               <> <div className="group rounded-dropdown">
-                  <div className="rounded-full h-12 w-12 bg-black text-white font-bold text-xl p-2">
+                  <div className="rounded-full h-12 w-12 bg-black text-white font-bold text-xl p-2" onClick={()=>setUserCard(!userCard)}>
                     {User.email.charAt(0).toUpperCase()}
 
                   </div>
-                {/* <div className="dropdown-content hidden mt-2 -ml-3  bg-white shadow-lg rounded-md">
-                  <ul>
-                    <li>
-                      <Link to="/profile"  className="block px-4 py-2 text-gray-800 hover:bg-rose-200 hover:text-white">Profile</Link>
-                    </li>
-
-                    <li>
-                      <Link to="/admin"  className="block px-4 py-2 text-gray-800 hover:bg-rose-200 hover:text-white">Admin</Link>
-                    </li>
-
-                  </ul>
-                </div> */}
+                  <div className="absolute h-50 w-50 bg-slate-400 rounded-lg -ml-20">
+                  {userCard &&  <ProfilePage/>}
+                  </div>
+                  
+                  
+                
                </div>
                 <FontAwesomeIcon onClick={openChat} icon={faComment} className="user-chat mt-2 w-8 h-8" />
                 {isChatOpen && <ChatPopup onClose={closeChat} />} 
