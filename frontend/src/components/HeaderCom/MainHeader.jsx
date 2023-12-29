@@ -80,7 +80,7 @@ const MainHeader = () => {
   </div>
         <div className="header2 flex flex-wrap mt-3 ">
           <div className="search-vehicle flex flex-wrap gap-5 mr-2 cursor-pointer">
-            <div className="flex items-center border-2 border-solid border-black rounded-md p-2 w-160 h-12">
+            <div className="flex items-center border-2  rounded-md p-2 w-160 h-12">
               <input
                 type="text"
                 placeholder="Search for vehicles"
