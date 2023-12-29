@@ -44,9 +44,9 @@ const AddVehicle = () => {
                     <div>
                         <input type="text"
                             name='imageurl'
-                            value={vehicles.imageUrls.join(",")} // Join the array into a comma-separated string
-                            onChange={handleImageChange}
-                            // onChange={(e)=>setVehicles({...vehicles, imageUrl : e.target.value})}
+                            value={vehicles.imageUrls} // Join the array into a comma-separated string
+                            // onChange={handleImageChange}
+                            onChange={(e)=>setVehicles({...vehicles, imageUrl : e.target.value})}
                             className=' bg-gray-600 mb-4 px-2 py-2 w-full lg:w-[20em] rounded-lg text-white placeholder:text-gray-200 outline-none'
                             placeholder='Vehicle imageUrl'
                         />

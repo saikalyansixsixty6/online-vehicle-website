@@ -14,7 +14,7 @@ const MyState = (props) => {
   const [vehicles, setVehicles] = useState({
     title: null,
     price: null,
-    imageUrl: [], // empty arrray
+    imageUrl: null, // empty arrray
     category: null,
     description: null,
     time: Timestamp.now(),
