@@ -173,7 +173,8 @@ function Cardetails() {
             </div>
         </div>
         <div className="Future_Spacifications border max-w-6xl h-auto ml-40 bg-[#ffffff] mt-4">
-            <div className="car_futures_details ">
+        <div className="Other_car_title text-left ml-8 font-semibold text-lg"><span>Specifications of {title} car </span></div>
+            <div className="car_futures_details ml-[251px] ">
                <div className="features_details flex flex-wrap space-x-1  ">
                <GiSteeringWheel className='p mt-1'/>
                 <span>Steering Mounted Controls</span>
