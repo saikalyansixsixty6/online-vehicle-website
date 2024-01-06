@@ -26,6 +26,7 @@ function Cardetails() {
   const { id } = useParams();
   const location = useLocation();
   const vehicle = location.state ? location.state.vehicle : null;
+  const [activeButton, setActiveButton] = useState('features');
 //   const selectedVehicle = location.state ? location.state.selectedVehicle : null;
 
 //   const context = useContext(MyContext);
@@ -65,7 +66,10 @@ function Cardetails() {
     
 
     
-  
+
+    const handleButtonClick = (buttonType) => {
+      setActiveButton(buttonType);
+    };
     const openChat = () => {
       console.log('Opening chat...');
       setChatOpen(true);
@@ -110,8 +114,24 @@ function Cardetails() {
                 <input type="text" placeholder='Search for features & specifications' className='search_input w-[500px] h-12 text-center border-[#cdcaca] border-2 rounded-xl' />
             </div>
             <div className="button text-left ml-8 text-2xl ">
-                <button className='btn p-[6px] mt-5 w-[235px] rounded-3xl bg-[#f75d34] hover:bg-[#fdfdfd] hover:text-[#f75d34]'>Features</button>
-                <button className='btn p-[6px] m-6 w-[235px] rounded-3xl  bg-[#f75d34] hover:bg-[#fdfdfd] hover:text-[#f75d34]'>Specifications</button>
+                <button
+                  className={`btn p-[6px] mt-5 w-[235px] rounded-3xl ${
+                    activeButton === 'features' ? 'bg-[#f75d34] text-[#fdfdfd]' : 'bg-[#fdfdfd] text-[#f75d34]'
+                  } `}
+                  onClick={() => handleButtonClick('features')}
+                >
+                  Features
+                </button>
+                  <button
+                    className={`btn p-[6px] m-6 w-[235px] rounded-3xl ${
+                      activeButton === 'specifications'
+                        ? 'bg-[#f75d34] text-white'
+                        : 'bg-white text-[#f75d34]'
+                    }`}
+                    onClick={() => handleButtonClick('specifications')}
+                  >
+                    Specifications
+                  </button>
             </div>
 
             <div className="container flex flex-wrap border-[#cdcaca] border-2  ml-11 w-[1000px] mt-1">
@@ -173,37 +193,37 @@ function Cardetails() {
             </div>
         </div>
         <div className="Future_Spacifications border max-w-6xl h-auto ml-40 bg-[#ffffff] mt-4">
-        <div className="Other_car_title text-left ml-8 font-semibold text-lg"><span>Specifications of {title} car </span></div>
-            <div className="car_futures_details ml-[251px] ">
-               <div className="features_details flex flex-wrap space-x-1  ">
+        <div className="Other_car_title text-left mt-4 ml-8 font-semibold text-lg"><span>Specifications of {title} car </span></div>
+            <div className="car_futures_details mt-4 ml-[150px] grid grid-cols-3 gap-7 ">
+               <div className="features_details flex flex-wrap space-x-2  ">
                <GiSteeringWheel className='p mt-1'/>
                 <span>Steering Mounted Controls</span>
                 </div>
-                <div className="features_details flex flex-wrap space-x-1  ">
+                <div className="features_details flex flex-wrap space-x-2  ">
                 <FaBluetooth className='p mt-1' />
                 <span>Bluetooth Compatibility</span>
                 </div>
-                <div className="features_details flex flex-wrap space-x-1 ">
+                <div className="features_details flex flex-wrap space-x-2 ">
                 <MdAir className='p mt-1'/>
                 <span>Air Conditioner</span>
                 </div>
-                <div className="features_details flex flex-wrap space-x-1">
+                <div className="features_details flex flex-wrap space-x-2">
                 <GiHairStrands className='p mt-1' />
                 <span>Rear Defogger</span>
                 </div>
-                <div className="features_details flex flex-wrap space-x-1">
+                <div className="features_details flex flex-wrap space-x-2">
                 <GiSteeringWheel className='p mt-1'/>
                 <span>Steering Mounted Controls</span>
                 </div>
-                <div className="features_details flex flex-wrap space-x-1  ">
+                <div className="features_details flex flex-wrap space-x-2  ">
                 <FaBluetooth className='p mt-1' />
                 <span>Bluetooth Compatibility</span>
                 </div>
-                <div className="features_details flex flex-wrap space-x-1 ">
+                <div className="features_details flex flex-wrap space-x-2 ">
                 <MdAir className='p mt-1'/>
                 <span>Air Conditioner</span>
                 </div>
-                <div className="features_details flex flex-wrap space-x-1">
+                <div className="features_details flex flex-wrap space-x-2">
                 <GiHairStrands className='p mt-1' />
                 <span>Rear Defogger</span>
                </div>
