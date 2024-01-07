@@ -43,7 +43,7 @@ function Home() {
                       <Link
                         to={{
                           pathname: `/car_details/${vehicle.id}`,
-                          state: { allVehicles: vehicle, selectedVehicle: vehicle },
+                          state: { otherVehicles: vehicle.otherVehicles,allVehicles: vehicle, selectedVehicle: vehicle },
                         }}
                        ></Link>
                       <CarCards vehicle={vehicle} />

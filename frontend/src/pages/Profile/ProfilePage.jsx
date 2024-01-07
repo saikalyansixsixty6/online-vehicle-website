@@ -10,11 +10,11 @@ const ProfilePage = () => {
 
   return (
     
-        <div className="p-6">
-          <h1 className="text-3xl font-bold mb-4">Your Profile</h1>
+        <div className="p-6 border-b-4 border-l-4 solid bg-[#f0f0f0] text-[#24272c]">
+          <h1 className="text-3xl font-bold mb-4 text-black">Your Profile</h1>
           <div className="mb-4">
             <p className="text-lg">
-              <span className="font-bold">Email:</span> {auth.currentUser.email}
+              <span className="font-bold text-black">Email:</span> {auth.currentUser.email}
             </p>
             <p className="text-lg">
               <span className="font-bold">Name:</span> {auth.currentUser.displayName || 'N/A'}

@@ -1,9 +1,8 @@
 
 import MainHeader from '../components/HeaderCom/MainHeader';
 import './cardetails.css'
-import { useLocation, useParams } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import CarCard from '../shared/Carcard';
-import MyContext from '../context/MyContext';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { GiSteeringWheel } from "react-icons/gi";
@@ -12,71 +11,62 @@ import { GiHairStrands } from "react-icons/gi";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { LiaRupeeSignSolid } from "react-icons/lia";
 import ChatPopup from '../pages/Chatpopup';
-import { useContext, useEffect, useState } from 'react';
+import {  useEffect, useState } from 'react';
 import Footer from '../components/Footer/Footer';
 import { auth } from '../utils/firebase';
 import {doc,setDoc,collection} from "firebase/firestore"
 import { fireDB } from '../utils/firebase';
 import { FaBluetooth } from 'react-icons/fa';
-
+import { MdAppRegistration } from "react-icons/md";
+import { FaBuildingCircleCheck } from "react-icons/fa6";
+import { FaRoad } from "react-icons/fa";
+import { PiEngineFill } from "react-icons/pi";
+import { IoShieldCheckmark } from "react-icons/io5";
+import { FaKey } from "react-icons/fa6";
+import { AiFillSetting } from "react-icons/ai";
+import { BsFillFuelPumpFill } from "react-icons/bs";
     
 function Cardetails() {
   const user = auth.currentUser;
-  const {displayName,email} = user;
-  const { id } = useParams();
+  const {displayName,email} = user || {};
   const location = useLocation();
   const vehicle = location.state ? location.state.vehicle : null;
   const [activeButton, setActiveButton] = useState('features');
-//   const selectedVehicle = location.state ? location.state.selectedVehicle : null;
-
-//   const context = useContext(MyContext);
   const [isChatOpen, setChatOpen] = useState(false);
 
-//   if (!context || !context.cars || !Array.isArray(context.cars)) {
-//     return <p>Cars data not available.</p>;
-//   }
-// const [allVehicles, setAllVehicles] = useState([]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    const handleScroll = () => {
+      window.scrollTo(0, 0);
+    };
 
-// const fetchData = async () => {
-//   // Fetch all cars data or any other required data
-//   // For now, let's just use a dummy array
-//   const dummyAllCars = [
-//     { id: '1', title: 'Car 1', imageUrl: 'url1', price: '$20000' },
-//     { id: '2', title: 'Car 2', imageUrl: 'url2', price: '$25000' },
-//     { id: '3', title: 'Car 3', imageUrl: 'url3', price: '$18000' },
-//   ];
-
-//   setAllVehicles(dummyAllCars);
-// };
-
-// useEffect(() => {
-//   fetchData();
-// }, []); // Fetch data on component mount
-// const otherVehicles = selectedVehicle
-// ? selectedVehicle.allVehicles.filter((v) => v.id !== id)
-// : [];
-
-  if (!vehicle) {
-    return <p>Vehicle details not found.</p>;
-  }
-  const { title, imageUrl, price, description } =vehicle;
-  
-    console.log('Car ID:', id);
-    console.log('Cardetails component rendering...');
-    
+    window.addEventListener('popstate', handleScroll);
+    return () => {
+      window.removeEventListener('popstate', handleScroll);
+    };
+  }, []);
 
     
+    if (!vehicle) {
+      return <p>Vehicle details not found.</p>;
+    }
+    const { title, imageUrl, price, description } =vehicle;
+    const otherVehicles =location.state ? location.state.otherVehicles : []; 
 
     const handleButtonClick = (buttonType) => {
       setActiveButton(buttonType);
+      if (buttonType === 'specifications') {
+        const featureSection = document.getElementById('feature_section');
+        if (featureSection) {
+          featureSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
     };
     const openChat = () => {
-      console.log('Opening chat...');
       setChatOpen(true);
     };
   
     const closeChat = () => {
-      console.log('Closing chat...');
       setChatOpen(false);
     };
     
@@ -92,13 +82,12 @@ function Cardetails() {
             const docRef = doc(collection(fireDB, 'request'));
         
             await setDoc(docRef, userDet);
-            alert('Request sent successfully!');
           } catch (error) {
             alert('Error adding user data: ', error);
           }
      openChat()
     }
-   
+    
   return <>
      <MainHeader />
      <div className="bg-[#fcfcfc]">
@@ -133,7 +122,6 @@ function Cardetails() {
                     Specifications
                   </button>
             </div>
-
             <div className="container flex flex-wrap border-[#cdcaca] border-2  ml-11 w-[1000px] mt-1">
                 <div className="img_section ">
                     <img src={imageUrl} alt="" className='img w-[500px] h-[400px]'/>
@@ -192,53 +180,88 @@ function Cardetails() {
                 </div>
             </div>
         </div>
-        <div className="Future_Spacifications border max-w-6xl h-auto ml-40 bg-[#ffffff] mt-4">
+        <div className="Future_Spacifications  border max-w-6xl h-auto ml-40 bg-[#ffffff] mt-4" id="feature_section">
         <div className="Other_car_title text-left mt-4 ml-8 font-semibold text-lg"><span>Specifications of {title} car </span></div>
             <div className="car_futures_details mt-4 ml-[150px] grid grid-cols-3 gap-7 ">
                <div className="features_details flex flex-wrap space-x-2  ">
-               <GiSteeringWheel className='p mt-1'/>
-                <span>Steering Mounted Controls</span>
+                  <MdAppRegistration className='p mt-1'/>
+                  <div className="reg">
+                    <span>Reg Year</span><br />
+                    <span> Oct 2016</span>
+                  </div>
                 </div>
                 <div className="features_details flex flex-wrap space-x-2  ">
-                <FaBluetooth className='p mt-1' />
-                <span>Bluetooth Compatibility</span>
+                    <FaBuildingCircleCheck className='p mt-1' />
+                    <div className="com">
+                      <span>Make Year</span><br />
+                      <span>2016</span>
+                    </div>
                 </div>
                 <div className="features_details flex flex-wrap space-x-2 ">
-                <MdAir className='p mt-1'/>
-                <span>Air Conditioner</span>
+                  <FaRoad  className='p mt-1'/>
+                  <div className="reg-nu">
+                    <span>Reg Nunmber</span><br />
+                    <span>DL8c-AC6413</span>
+                  </div>
                 </div>
                 <div className="features_details flex flex-wrap space-x-2">
-                <GiHairStrands className='p mt-1' />
-                <span>Rear Defogger</span>
+                  <PiEngineFill className='p mt-1' />
+                  <div className="eng">
+                    <span>Engine Capacity</span><br />
+                    <span>1199 cc</span>
+                  </div>
                 </div>
                 <div className="features_details flex flex-wrap space-x-2">
-                <GiSteeringWheel className='p mt-1'/>
-                <span>Steering Mounted Controls</span>
+                  <IoShieldCheckmark className='p mt-1'/>
+                  <div className="insu text-left">
+                    <span>Insurance</span><br />
+                    <span>Comprehensive,Valid till Sep-2024</span>
+                  </div>
                 </div>
                 <div className="features_details flex flex-wrap space-x-2  ">
-                <FaBluetooth className='p mt-1' />
-                <span>Bluetooth Compatibility</span>
+                  <FaKey className='p mt-1' />
+                  <div className="spare">
+                    <span>Spare Key</span><br />
+                    <span>Yes</span>
+                  </div>
                 </div>
                 <div className="features_details flex flex-wrap space-x-2 ">
-                <MdAir className='p mt-1'/>
-                <span>Air Conditioner</span>
+                  <AiFillSetting className='p mt-1'/>
+                  <div className="trans">
+                    <span>Transmission</span><br />
+                    <span>Manual</span>
+                  </div>
                 </div>
                 <div className="features_details flex flex-wrap space-x-2">
-                <GiHairStrands className='p mt-1' />
-                <span>Rear Defogger</span>
+                  <BsFillFuelPumpFill className='p mt-1' />
+                  <div className="fuel">
+                    <span>Fuel Type</span><br />
+                    <span>CNG</span>
+                  </div>
                </div>
             </div>
         </div>
         <div className="other_cars border max-w-6xl h-auto ml-40 bg-[#ffffff] mt-4">
             <div className="Other_car_title text-left ml-8 font-semibold text-lg"><span>People who viewed {title} also viewed this cars</span></div>
             <div className="cars_card">
-              {/* <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {[selectedVehicle, ...allVehicles].map((vehicle) => (
-                  <div key={vehicle.id}>
-                    <CarCard id={vehicle.id} vehicle={vehicle} />
-                  </div>
-                ))}
-              </div> */}
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {otherVehicles && otherVehicles.length > 0 ? (
+        otherVehicles.map((otherVehicle) => (
+          <div key={otherVehicle.id}>
+            <Link
+              to={{
+                pathname: `/car_details/${otherVehicle.id}`,
+                state: { vehicle: otherVehicle },
+              }}
+            >
+              <CarCard vehicle={otherVehicle} />
+            </Link>
+          </div>
+        ))
+      ) : (
+        <p>No other cars to display</p>
+      )}
+              </div>
             </div>
         </div>
 </div>

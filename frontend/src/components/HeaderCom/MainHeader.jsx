@@ -2,7 +2,7 @@ import "./MainHeader.css";
 import { useState, useEffect, useContext, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown, faUser, faComment } from "@fortawesome/free-solid-svg-icons";
-import { FaSignInAlt } from "react-icons/fa";
+
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../utils/firebase";
 import { signOut } from "firebase/auth";
