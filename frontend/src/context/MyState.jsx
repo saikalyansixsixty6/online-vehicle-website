@@ -14,9 +14,12 @@ const MyState = (props) => {
   const [vehicles, setVehicles] = useState({
     title: null,
     price: null,
-    imageUrl: null,
-    category: null,
+    imageUrls: null,
+    fuelType: null,
+    gearType:null,
+    purchasedYear:null,
     description: null,
+    kilometers:null,
     time: Timestamp.now(),
     date: new Date().toLocaleString(
       "en-US",

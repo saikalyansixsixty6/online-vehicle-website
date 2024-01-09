@@ -75,7 +75,7 @@ const AdminDashBoardTab = () => {
                                                     Price
                                                 </th>
                                                 <th scope="col" className="px-6 py-3">
-                                                    Category
+                                                    Fuel Type
                                                 </th>
                                                 <th scope="col" className="px-6 py-3">
                                                     Date
@@ -86,7 +86,7 @@ const AdminDashBoardTab = () => {
                                             </tr>
                                         </thead>
                                         {vehicle.map((item, index) => {
-                                            const { title, price, imageUrl, category,date } = item;
+                                            const { title, price, imageUrl, fuelType,date } = item;
                                             return (
                                                 <tbody className='' key={index}>
                                                     <tr className="bg-gray-50 border-b  dark:border-gray-700"  >
@@ -103,7 +103,7 @@ const AdminDashBoardTab = () => {
                                                             ₹{price}
                                                         </td>
                                                         <td className="px-6 py-4 text-black " >
-                                                            {category}
+                                                            {fuelType}
                                                         </td>
                                                         <td className="px-6 py-4 text-black " >
                                                             {date}
