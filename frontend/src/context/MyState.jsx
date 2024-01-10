@@ -14,10 +14,15 @@ const MyState = (props) => {
   const [vehicles, setVehicles] = useState({
     title: null,
     price: null,
+<<<<<<< HEAD
     imageUrls: null,
     fuelType: null,
     gearType:null,
     purchasedYear:null,
+=======
+    imageUrl: null, // empty arrray
+    category: null,
+>>>>>>> 9821559209ff67e7522a80a6948e10821771e77c
     description: null,
     kilometers:null,
     time: Timestamp.now(),

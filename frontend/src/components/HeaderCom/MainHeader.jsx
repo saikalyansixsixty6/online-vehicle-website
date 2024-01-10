@@ -1,8 +1,8 @@
 import "./MainHeader.css";
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown, faUser, faComment } from "@fortawesome/free-solid-svg-icons";
-import { FaSignInAlt } from "react-icons/fa";
+
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../utils/firebase";
 import { signOut } from "firebase/auth";
@@ -13,6 +13,8 @@ import MyContext from "../../context/MyContext";
 import ChatPopup from "../../pages/Chatpopup";
 import Logo from "../../utils/constants";
 import ProfilePage from "../../pages/Profile/ProfilePage";
+import { IoExitOutline } from "react-icons/io5";
+import { IoChatboxEllipsesOutline } from "react-icons/io5";
 
 
 const MainHeader = () => {
@@ -26,6 +28,9 @@ const MainHeader = () => {
   const [isSticky, setSticky] = useState(false);
   const User = auth.currentUser;
   const [isChatOpen, setChatOpen] = useState(false);
+  const [userCardOpen, setUserCardOpen] = useState(false);
+
+  const userCardRef = useRef(null);
 
   const user = useSelector((store) => store.user);
 
@@ -50,6 +55,13 @@ const MainHeader = () => {
     console.log('Closing chat...');
     setChatOpen(false);
   };
+  const toggleUserCard = () => {
+    setUserCardOpen((prev) => !prev);
+  };
+
+  const closeUserCard = () => {
+    setUserCardOpen(false);
+  };
   
 
   useEffect(() => {
@@ -63,6 +75,20 @@ const MainHeader = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (userCardRef.current && !userCardRef.current.contains(event.target)) {
+        closeUserCard();
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
 
   return (
     <div className={`${isSticky ? 'sticky' : ''}`}>
@@ -80,7 +106,7 @@ const MainHeader = () => {
   </div>
         <div className="header2 flex flex-wrap mt-3 ">
           <div className="search-vehicle flex flex-wrap gap-5 mr-2 cursor-pointer">
-            <div className="flex items-center border-2 border-solid border-black rounded-md p-2 w-160 h-12">
+            <div className="flex items-center border-2  rounded-md p-2 w-160 h-12">
               <input
                 type="text"
                 placeholder="Search for vehicles"
@@ -93,25 +119,25 @@ const MainHeader = () => {
                 className="ml-2 text-gray-500 cursor-pointer"
               />
             </div>
-            <p className='language mt-4'> ENGLISH </p>
-            <FontAwesomeIcon icon={faCaretDown} className='search-icon-svg mt-4 w-6 h-6 ml-0' />
+            <p className='language mt-3'> ENGLISH </p>
+            <FontAwesomeIcon icon={faCaretDown} className='search-icon-svg mt-4 w-6 h-6 -ml-[18px]' />
             
             {user ? (
-              <> <div className="group rounded-dropdown">
-                  <div className="rounded-full h-12 w-12 bg-black text-white font-bold text-xl p-2" onClick={()=>setUserCard(!userCard)}>
+              <> <div className="group rounded-dropdown mt-1">
+                  <div className="rounded-[25px] h-12 w-12  bg-[#f75d34] border-t-black border-b-2 border-l-2 font-bold text-xl p-2" ref={userCardRef} onClick={()=>setUserCard(!userCard)}>
                     {User.email.charAt(0).toUpperCase()}
 
                   </div>
-                  <div className="absolute h-50 w-50 bg-slate-400 rounded-lg -ml-20">
+                  <div className="absolute h-50 w-50 bg-white border-l-2 border-b-2 border-transparent border-[#e0dfde] rounded-lg -ml-60">
                   {userCard &&  <ProfilePage/>}
                   </div>
                   
                   
                 
                </div>
-                <FontAwesomeIcon onClick={openChat} icon={faComment} className="user-chat mt-2 w-8 h-8" />
+                <IoChatboxEllipsesOutline onClick={openChat} icon={faComment} className="user-chat mt-2 w-8 h-8" />
                 {isChatOpen && <ChatPopup onClose={closeChat} />} 
-                <FaSignInAlt className="h-10 w-10 mx-auto" onClick={handleSignOut} />
+                <IoExitOutline className="exite mt-2 h-8 w-8" onClick={handleSignOut} />
                
               </>
             ) : (

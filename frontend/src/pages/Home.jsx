@@ -7,6 +7,7 @@ import MyContext from '../context/MyContext';
 import MainHeader from '../components/HeaderCom/MainHeader';
 
 import Footer from '../components/Footer/Footer';
+import { Link } from 'react-router-dom';
 
 function Home() {
   const context = useContext(MyContext);
@@ -39,6 +40,12 @@ function Home() {
                   )
                   .map((vehicle, index) => (
                     <div key={vehicle.id || index}>
+                      <Link
+                        to={{
+                          pathname: `/car_details/${vehicle.id}`,
+                          state: { otherVehicles: vehicle.otherVehicles,allVehicles: vehicle, selectedVehicle: vehicle },
+                        }}
+                       ></Link>
                       <CarCards vehicle={vehicle} />
                     </div>
                   ))}
