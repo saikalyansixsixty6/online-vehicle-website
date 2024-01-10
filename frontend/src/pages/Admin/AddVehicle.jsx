@@ -7,11 +7,14 @@ const AddVehicle = () => {
   const context = useContext(MyContext);
   const {vehicles,setVehicles,addVehicle} = context;
 
-
-
   const handleImageChange = (e) => {
-    // Split the entered URLs by comma and store them in an array
-    const imageUrls = e.target.value.split(",");
+    const selectedFiles = e.target.files;
+
+    const imageUrls = [];
+    for (let i = 0; i < selectedFiles.length; i++) {
+      const imageUrl = URL.createObjectURL(selectedFiles[i]);
+      imageUrls.push(imageUrl);
+    }
     setVehicles({ ...vehicles, imageUrls: imageUrls });
   };
 
@@ -42,14 +45,22 @@ const AddVehicle = () => {
                         />
                     </div>
                     <div>
-                        <input type="text"
+                    <input type='file'
+                            name='image'
+                            // value={vehicles.imageUrl}
+                            onChange={handleImageChange}
+                            className='bg-gray-600 mb-4 px-2 py-2 w-full lg:w-[20em] rounded-lg text-white placeholder:text-gray-200 outline-none'
+                            accept='image/*'
+                            multiple 
+                            />      
+                        {/* <input type="text"
                             name='imageurl'
                             value={vehicles.imageUrls} // Join the array into a comma-separated string
                             // onChange={handleImageChange}
                             onChange={(e)=>setVehicles({...vehicles, imageUrl : e.target.value})}
                             className=' bg-gray-600 mb-4 px-2 py-2 w-full lg:w-[20em] rounded-lg text-white placeholder:text-gray-200 outline-none'
                             placeholder='Vehicle imageUrl'
-                        />
+                        /> */}
                     </div>
                     <div>
                         <input type="text"

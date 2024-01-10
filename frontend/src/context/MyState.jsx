@@ -12,11 +12,11 @@ const MyState = (props) => {
   
   const [loading,setLoading] = useState(false)
   const [vehicles, setVehicles] = useState({
-    title: null,
-    price: null,
-    imageUrl: null, // empty arrray
-    category: null,
-    description: null,
+    title: '',
+    price: '',
+    imageUrl: [],
+    category: '',
+    description: '',
     time: Timestamp.now(),
     date: new Date().toLocaleString(
       "en-US",
