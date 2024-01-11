@@ -250,21 +250,21 @@ function Cardetails() {
             <div className="cars_card">
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {otherVehicles && otherVehicles.length > 0 ? (
-        otherVehicles.map((otherVehicle) => (
-          <div key={otherVehicle.id}>
-            <Link
-              to={{
-                pathname: `/car_details/${otherVehicle.id}`,
-                state: { vehicle: otherVehicle },
-              }}
-            >
-              <CarCard vehicle={otherVehicle} />
-            </Link>
-          </div>
-        ))
-      ) : (
-        <p>No other cars to display</p>
-      )}
+                  otherVehicles.map((otherVehicle) => (
+                    <div key={otherVehicle.id}>
+                      <Link
+                        to={{
+                          pathname: `/car_details/${otherVehicle.id}`,
+                          state: { vehicle: otherVehicle },
+                        }}
+                      >
+                        <CarCard vehicle={otherVehicle} />
+                      </Link>
+                    </div>
+                  ))
+                ) : (
+                  <p>No other cars to display</p>
+                )}
               </div>
             </div>
         </div>
