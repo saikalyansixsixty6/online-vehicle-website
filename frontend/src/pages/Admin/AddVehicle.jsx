@@ -7,18 +7,18 @@ const AddVehicle = () => {
   const context = useContext(MyContext);
   const {vehicles,setVehicles,addVehicle} = context;
 
-<<<<<<< Updated upstream
-  const handleImageChange = (e) => {
-    const selectedFiles = e.target.files;
 
-    const imageUrls = [];
-    for (let i = 0; i < selectedFiles.length; i++) {
-      const imageUrl = URL.createObjectURL(selectedFiles[i]);
-      imageUrls.push(imageUrl);
-    }
-    setVehicles({ ...vehicles, imageUrls: imageUrls });
-  };
-=======
+//   const handleImageChange = (e) => {
+//     const selectedFiles = e.target.files;
+
+//     const imageUrls = [];
+//     for (let i = 0; i < selectedFiles.length; i++) {
+//       const imageUrl = URL.createObjectURL(selectedFiles[i]);
+//       imageUrls.push(imageUrl);
+//     }
+//     setVehicles({ ...vehicles, imageUrls: imageUrls });
+//   };
+
 
 
 //   const handleImageChange = (e) => {
@@ -26,7 +26,7 @@ const AddVehicle = () => {
 //     const imageUrls = e.target.value.split(",");
 //     setVehicles({ ...vehicles, imageUrls: imageUrls });
 //   };
->>>>>>> Stashed changes
+
 
   return (
     <div>
@@ -56,23 +56,23 @@ const AddVehicle = () => {
                     </div>
                     <div>
                         <input type="text"
-<<<<<<< Updated upstream
+
                             name='imageurl'
                             value={vehicles.imageUrls} // Join the array into a comma-separated string
                             // onChange={handleImageChange}
                             onChange={(e)=>setVehicles({...vehicles, imageUrl : e.target.value})}
-=======
 
-                            name='imageurls'
+
+                            
                             // value={vehicles.imageUrls}
                             // onChange={(e)=>setVehicles({...vehicles, imageUrls : e.target.value})}
 
                             
-                            value={vehicles.imageUrls} // Join the array into a comma-separated string
+                        
                             // onChange={handleImageChange}
-                            onChange={(e)=>setVehicles({...vehicles, imageUrl : e.target.value})}
+                            
 
->>>>>>> Stashed changes
+
                             className=' bg-gray-600 mb-4 px-2 py-2 w-full lg:w-[20em] rounded-lg text-white placeholder:text-gray-200 outline-none'
                             placeholder='Vehicle imageUrl'
                         /> 
