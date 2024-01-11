@@ -14,8 +14,19 @@ const MyState = (props) => {
   const [vehicles, setVehicles] = useState({
     title: null,
     price: null,
+<<<<<<< Updated upstream
     imageUrl: null, // empty arrray
     category: null,
+=======
+    imageUrls: null,
+    fuelType: null,
+    gearType:null,
+    purchasedYear:null,
+
+    imageUrl: null, // empty arrray
+    category: null,
+
+>>>>>>> Stashed changes
     description: null,
     time: Timestamp.now(),
     date: new Date().toLocaleString(

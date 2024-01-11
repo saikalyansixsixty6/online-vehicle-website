@@ -83,8 +83,9 @@ function Cardetails() {
         }
         try {
             const docRef = doc(collection(fireDB, 'request'));
-        
+            alert("Request sent successfully!!!")
             await setDoc(docRef, userDet);
+          
           } catch (error) {
             alert('Error adding user data: ', error);
           }
