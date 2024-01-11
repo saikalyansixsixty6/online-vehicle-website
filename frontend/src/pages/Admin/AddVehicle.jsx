@@ -50,10 +50,9 @@ const AddVehicle = () => {
                             value={vehicles.imageUrls} // Join the array into a comma-separated string
                             // onChange={handleImageChange}
                             onChange={(e)=>setVehicles({...vehicles, imageUrl : e.target.value})}
->>>>>>> 9821559209ff67e7522a80a6948e10821771e77c
                             className=' bg-gray-600 mb-4 px-2 py-2 w-full lg:w-[20em] rounded-lg text-white placeholder:text-gray-200 outline-none'
                             placeholder='Vehicle imageUrl'
-                        /> */}
+                        /> 
                     </div>
                     <div>
                         <input type="text"
