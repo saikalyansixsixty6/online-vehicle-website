@@ -25,7 +25,10 @@ import { IoShieldCheckmark } from "react-icons/io5";
 import { FaKey } from "react-icons/fa6";
 import { AiFillSetting } from "react-icons/ai";
 import { BsFillFuelPumpFill } from "react-icons/bs";
-    
+import { FcNext } from "react-icons/fc";
+
+
+
 function Cardetails() {
   const user = auth.currentUser;
   const {displayName,email} = user || {};
@@ -125,6 +128,7 @@ function Cardetails() {
             <div className="container flex flex-wrap border-[#cdcaca] border-2  ml-11 w-[1000px] mt-1">
                 <div className="img_section ">
                     <img src={imageUrl} alt="" className='img w-[500px] h-[400px]'/>
+                    <FcNext  className='slide_bt absolute mt-[-220px] ml-[450px] w-12  h-12 text-gray-50' />
                 </div>
                 <div className="details ">
                     <div className="car_title ml-8 text-left  font-bold text-2xl mt-3">
