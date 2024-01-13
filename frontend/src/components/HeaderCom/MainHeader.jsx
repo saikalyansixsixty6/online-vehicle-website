@@ -139,7 +139,7 @@ const MainHeader = () => {
                 {isChatOpen && <ChatPopup onClose={closeChat} />} 
                 <IoExitOutline className="exite mt-2 h-8 w-8" onClick={handleSignOut} />
                
-              </>
+                </> 
             ) : (
               <Link to='/signIn'><FontAwesomeIcon
                 

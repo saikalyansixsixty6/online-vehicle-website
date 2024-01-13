@@ -48,7 +48,9 @@ function Chatpopup({ onClose }) {
   };
 
   return (
+  <>
     <div className="chat-container">
+      
       <div className="chat-popup">
         <div className="chat-content">
           <p>Welcome to Chat Support!</p>
@@ -79,7 +81,8 @@ function Chatpopup({ onClose }) {
         </div>
       </div>
     </div>
-  );
+    </> );
+    
 }
 
 export default Chatpopup;
