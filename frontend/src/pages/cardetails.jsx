@@ -1,7 +1,7 @@
 
 import MainHeader from '../components/HeaderCom/MainHeader';
 import './cardetails.css'
-import { Link, useLocation } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import CarCard from '../shared/Carcard';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -36,6 +36,7 @@ function Cardetails() {
   const vehicle = location.state ? location.state.vehicle : null;
   const [activeButton, setActiveButton] = useState('features');
   const [isChatOpen, setChatOpen] = useState(false);
+  const Navigate = useNavigate();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -74,7 +75,12 @@ function Cardetails() {
     };
     
     const OnclickRequest = async()=>{
-        
+      if (!user) {
+        console.log("User not logged in. Redirecting to login page...");
+        // You can replace '/login' with the actual path of your login page
+        Navigate('/signIn');
+        return; }
+      
         const userDet= {
             displayName:displayName,
             email:email,
@@ -168,12 +174,13 @@ function Cardetails() {
                         
                     </div>
                     <div className="bt_n mb-1 text-left ml-8">
-                        <button onClick={OnclickRequest} className="bg-[#f75d34] m-[3px] text-white font-bold py-3 px-6 rounded-[5px] mt-[50px]">
-                            Request to Test Drive
+                      
+                       <button onClick={OnclickRequest} className="bg-[#f75d34] m-[3px] text-white font-bold py-3 px-6 rounded-[5px] mt-[50px]">
+                       {user ? 'Request to Test Drive' : 'LogIn to Request Test Drive'}
                         </button>
                         {isChatOpen && <ChatPopup onClose={closeChat} />}
+                        
                     </div>
-                    
                 </div>
             </div>
             <div className="car_description m-8 text-left ">
