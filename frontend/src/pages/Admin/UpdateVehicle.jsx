@@ -10,8 +10,8 @@ const UpdateVehicle = () => {
 
   return (
     <div>
-            <div className='overflow-scroll flex justify-center items-center h-100'>
-                <div className=' bg-gray-800 px-10 py-10 rounded-xl '>
+            <div className='overflow-scroll flex justify-center items-center h-100  '>
+                <div className=' bg-gray-800 px-10 py-10 rounded-xl'>
                     <div className="">
                         <h1 className='text-center text-white text-xl mb-4 font-bold'>Update Vehicle</h1>
                     </div>
@@ -77,6 +77,15 @@ const UpdateVehicle = () => {
                             onChange={(e)=>setVehicles({...vehicles, kilometers : e.target.value})}
                             className=' bg-gray-600 mb-4 px-2 py-2 w-full lg:w-[20em] rounded-lg text-white placeholder:text-gray-200 outline-none'
                             placeholder='Kilometers'
+                        />
+                    </div>
+                    <div>
+                        <input type="text"
+                            name='Engine Capacity'
+                            value={vehicles.EngineCapacity}
+                            onChange={(e)=>setVehicles({...vehicles, EngineCapacity: e.target.value})}
+                            className=' bg-gray-600 mb-4 px-2 py-2 w-full lg:w-[20em] rounded-lg text-white placeholder:text-gray-200 outline-none'
+                            placeholder='Engine Capacity'
                         />
                     </div>
                     <div>

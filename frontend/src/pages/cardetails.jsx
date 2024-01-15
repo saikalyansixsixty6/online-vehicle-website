@@ -54,7 +54,7 @@ function Cardetails() {
     if (!vehicle) {
       return <p>Vehicle details not found.</p>;
     }
-    const { title, imageUrl, price, description } =vehicle;
+    const { title, imageUrl, price, description,fuelType, gearType, purchasedYear, kilometers  } =vehicle;
     const otherVehicles =location.state ? location.state.otherVehicles : []; 
 
     const handleButtonClick = (buttonType) => {
@@ -206,7 +206,7 @@ function Cardetails() {
                     <FaBuildingCircleCheck className='p mt-1' />
                     <div className="com">
                       <span>Make Year</span><br />
-                      <span>2016</span>
+                      <span>{purchasedYear}</span>
                     </div>
                 </div>
                 <div className="features_details flex flex-wrap space-x-2 ">
@@ -241,14 +241,14 @@ function Cardetails() {
                   <AiFillSetting className='p mt-1'/>
                   <div className="trans">
                     <span>Transmission</span><br />
-                    <span>Manual</span>
+                    <span>{gearType}</span>
                   </div>
                 </div>
                 <div className="features_details flex flex-wrap space-x-2">
                   <BsFillFuelPumpFill className='p mt-1' />
                   <div className="fuel">
                     <span>Fuel Type</span><br />
-                    <span>CNG</span>
+                    <span>{fuelType}</span>
                   </div>
                </div>
             </div>
