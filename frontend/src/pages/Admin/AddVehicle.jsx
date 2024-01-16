@@ -8,25 +8,19 @@ const AddVehicle = () => {
   const {vehicles,setVehicles,addVehicle} = context;
 
 
-//   const handleImageChange = (e) => {
-//     const selectedFiles = e.target.files;
+  const handleImageChange = (e) => {
+    const selectedFiles = e.target.files;
 
-//     const imageUrls = [];
-//     for (let i = 0; i < selectedFiles.length; i++) {
-//       const imageUrl = URL.createObjectURL(selectedFiles[i]);
-//       imageUrls.push(imageUrl);
-//     }
-//     setVehicles({ ...vehicles, imageUrls: imageUrls });
-//   };
-
-
-
-//   const handleImageChange = (e) => {
-//     // Split the entered URLs by comma and store them in an array
-//     const imageUrls = e.target.value.split(",");
-//     setVehicles({ ...vehicles, imageUrls: imageUrls });
-//   };
-
+    const imageUrls = [];
+    for (let i = 0; i < selectedFiles.length; i++) {
+      const imageUrl = URL.createObjectURL(selectedFiles[i]);
+      imageUrls.push(imageUrl);
+    }
+    setVehicles((prevVehicles) => ({
+        ...prevVehicles,
+        imageUrls: imageUrls,
+      }));
+  };
 
   return (
     <div>
@@ -55,24 +49,24 @@ const AddVehicle = () => {
                             />
                         </div>
                         <div>
-                            <input type="text"
+                            <input
+                            //  type="text"
 
-                                name='imageurl'
-                                value={vehicles.imageUrls} // Join the array into a comma-separated string
-                                // onChange={handleImageChange}
-                                onChange={(e)=>setVehicles({...vehicles, imageUrl : e.target.value})}
+                                // name='imageurl'
+                                // value={vehicles.imageUrls} // Join the array into a comma-separated string
+                                //  onChange={handleImageChange}
+                                // onChange={(e)=>setVehicles({...vehicles, imageUrl : e.target.value})}
+
+                                type='file'
+                                name='imageUrl'
+                                onChange={handleImageChange}
+                                accept='image/*'
+                                multiple
 
 
                                 
                                 // value={vehicles.imageUrls}
-                                // onChange={(e)=>setVehicles({...vehicles, imageUrls : e.target.value})}
-
-                                
-                            
-                                // onChange={handleImageChange}
-                                
-
-
+                                // onChange={(e)=>setVehicles({...vehicles, imageUrls : e.target.value})}                          
                                 className=' bg-gray-600 mb-4 px-2 py-2 w-full lg:w-[20em] rounded-lg text-white placeholder:text-gray-200 outline-none'
                                 placeholder='Vehicle imageUrl'
                             /> 

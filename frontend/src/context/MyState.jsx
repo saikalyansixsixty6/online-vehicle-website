@@ -15,10 +15,8 @@ const MyState = (props) => {
     title: null,
     price: null,
 
-    imageUrl: null, // empty arrray
+    imageUrl: [], // empty arrray
     category: null,
-
-    imageUrls: null,
     fuelType: null,
     gearType:null,
     purchasedYear:null,
@@ -64,9 +62,9 @@ const MyState = (props) => {
 
 
   const addVehicle = async () => {
-    if (vehicles.title == null || vehicles.price == null || vehicles.imageUrl == null || vehicles.category == null || vehicles.description == null) {
-      return toast.error('Please fill all fields')
-    }
+    // if (vehicles.title == null || vehicles.price == null || vehicles.category == null || vehicles.description == null) {
+    //   return toast.error('Please fill all fields')
+    // }
     const productRef = collection(fireDB, "vehicles")
     setLoading(true)
     try {
@@ -81,7 +79,7 @@ const MyState = (props) => {
       console.log(error)
       setLoading(false)
     }
-    setVehicles("")
+    setVehicles('')
   }
 
   const [vehicle, setVehicle] = useState([]);

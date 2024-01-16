@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import MyContext from '../../context/MyContext';
 import { useContext } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
@@ -12,6 +12,8 @@ import MainHeader from '../../components/HeaderCom/MainHeader';
 const AdminDashBoardTab = () => {
    const context = useContext(MyContext)
    const {deleteVehicle,edithandle,vehicle,user,request} = context
+   
+//    const [randomImageUrls, setRandomImageUrls] = useState('');
 
    const add = () => {
     window.location.href = '/addvehicle'
@@ -89,15 +91,27 @@ const AdminDashBoardTab = () => {
                                         </thead>
                                         {vehicle.map((item, index) => {
                                             const { title, price, imageUrl, fuelType,date } = item;
+                                            console.log(`Vehicle at index ${index} - Title: ${title}, ImageURL: `, imageUrl);
                                             return (
                                                 <tbody className='' key={index}>
                                                     <tr className="bg-gray-50 border-b  dark:border-gray-700"  >
                                                         <td className="px-6 py-4 text-black " >
                                                             {index + 1}.
                                                         </td>
+                                                        
                                                         <th scope="row" className="px-6 py-4 font-medium text-black whitespace-nowrap">
-                                                            <img className='w-16' src={imageUrl} alt="img" />
-                                                        </th>
+                                                        {Array.isArray(imageUrl) && imageUrl.length > 0 ? (
+                                                                    <div className="flex gap-2">
+                                                                    {imageUrl.map((url, imgIndex) => (
+                                                                        <img key={imgIndex} className="w-16" src={url} alt={`img${imgIndex}`} />
+                                                                    ))}
+                                                                    </div>
+                                                                ) : imageUrl ? (
+                                                                    <img className="w-16" src={imageUrl} alt={`img${index}`} />
+                                                                ) : (
+                                                                    <div>No Images</div>
+                                                                )}
+                                                                    </th>
                                                         <td className="px-6 py-4 text-black " >
                                                             {title}
                                                         </td>
