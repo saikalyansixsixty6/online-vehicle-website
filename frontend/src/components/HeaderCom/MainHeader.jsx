@@ -101,7 +101,9 @@ const MainHeader = () => {
         <div className="flex justify-end ml-auto" >
     <ul className="flex m-6">
       <li><Link to="/" className="text-black hover:bg-gray-300 font-bold p-3 rounded-lg ">Home</Link></li>
-      <li><Link to="/admin" className="text-black hover:bg-gray-300 font-bold p-3 rounded-lg">Admin</Link></li>
+        {user && (<li><Link to="/admin" className="text-black hover:bg-gray-300 font-bold p-3 rounded-lg">Admin</Link></li>) }
+      {/* <li><Link to="/admin" className="text-black hover:bg-gray-300 font-bold p-3 rounded-lg">Admin</Link></li> */}
+
     </ul>
   </div>
         <div className="header2 flex flex-wrap mt-3 ">

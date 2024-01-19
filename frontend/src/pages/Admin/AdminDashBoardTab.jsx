@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+
 import MyContext from '../../context/MyContext';
 import { useContext } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
