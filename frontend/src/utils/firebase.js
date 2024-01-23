@@ -4,14 +4,13 @@ import { initializeApp } from "firebase/app";
 // import { initializeApp } from "firebase/app";
  import {getAuth} from "firebase/auth"
  import {getFirestore} from "firebase/firestore"
-const firebaseConfig = {
-  apiKey: "AIzaSyArYv5qOjTC4ENIBhWIFWLKP-5rG5BPiyo",
-  authDomain: "vehiclemart-212c2.firebaseapp.com",
-  projectId: "vehiclemart-212c2",
-  storageBucket: "vehiclemart-212c2.appspot.com",
-  messagingSenderId: "782613351546",
-  appId: "1:782613351546:web:87e3e920f3dfdb7d2c3fc3",
-  measurementId: "G-JLXY73VJF2"
+ const firebaseConfig = {
+  apiKey: "AIzaSyC12msdDLr8CaC_GO2Fyr48QM6PnUb4gBk",
+  authDomain: "cra-vehicle-mart.firebaseapp.com",
+  projectId: "cra-vehicle-mart",
+  storageBucket: "cra-vehicle-mart.appspot.com",
+  messagingSenderId: "1096117811466",
+  appId: "1:1096117811466:web:24eaaced9e67e243efa2f3"
 };
 
 // Initialize Firebase
