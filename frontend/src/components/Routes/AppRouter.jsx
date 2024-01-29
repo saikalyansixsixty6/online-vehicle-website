@@ -7,6 +7,8 @@ import Cardetails from '../../pages/cardetails';
 // import { auth } from '../../utils/firebase';
 import AdminDashBoardTab from '../../pages/Admin/AdminDashBoardTab';
 import ProfilePage from '../../pages/Profile/ProfilePage';
+import { Navigate } from 'react-router-dom';
+import { auth } from '../../utils/firebase';
 
 
 
@@ -23,11 +25,27 @@ const AppRouter = () => {
         <Route path="/addvehicle" element={<AddVehicle />} />
         <Route path="/updatevehicle" element={<UpdateVehicle />} />
         <Route path="/car_details/:id" element={<Cardetails />} />
-        <Route path="/admin" element={<AdminDashBoardTab/>} />
+        <Route path="/admin" element={
+         <ProtectedRouteForAdmin>
+        <AdminDashBoardTab/>
+         </ProtectedRouteForAdmin>
+        } />
         <Route path="/profile" element={<ProfilePage/>} />
       </Routes>
     </Router>
   );
 };
+
+
+export const ProtectedRouteForAdmin = ({children}) =>{
+  
+  
+  if(auth.currentUser.email === "saikalyan1234@gmail.com"){
+        return children
+      }
+  else{
+    return <Navigate to={"/"}/>
+  }
+}
 
 export default AppRouter
