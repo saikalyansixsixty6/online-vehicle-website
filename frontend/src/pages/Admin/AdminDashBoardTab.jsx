@@ -90,8 +90,8 @@ const AdminDashBoardTab = () => {
                                             </tr>
                                         </thead>
                                         {vehicle.map((item, index) => {
-                                            const { title, price, imageUrl, fuelType,date } = item;
-                                            console.log(`Vehicle at index ${index} - Title: ${title}, ImageURL: `, imageUrl);
+                                            const { title, price, imageUrls, fuelType,date } = item;
+                                            console.log(`Vehicle at index ${index} - Title: ${title}, ImageURL: `, imageUrls);
                                             return (
                                                 <tbody className='' key={index}>
                                                     <tr className="bg-gray-50 border-b  dark:border-gray-700"  >
@@ -100,14 +100,14 @@ const AdminDashBoardTab = () => {
                                                         </td>
                                                         
                                                         <th scope="row" className="px-6 py-4 font-medium text-black whitespace-nowrap">
-                                                        {Array.isArray(imageUrl) && imageUrl.length > 0 ? (
+                                                        {Array.isArray(imageUrls) && imageUrls.length > 0 ? (
                                                                     <div className="flex gap-2">
-                                                                    {imageUrl.map((url, imgIndex) => (
+                                                                    {imageUrls.map((url, imgIndex) => (
                                                                         <img key={imgIndex} className="w-16" src={url} alt={`img${imgIndex}`} />
                                                                     ))}
                                                                     </div>
-                                                                ) : imageUrl ? (
-                                                                    <img className="w-16" src={imageUrl} alt={`img${index}`} />
+                                                                ) : imageUrls ? (
+                                                                    <img className="w-16" src={imageUrls} alt={`img${index}`} />
                                                                 ) : (
                                                                     <div>No Images</div>
                                                                 )}

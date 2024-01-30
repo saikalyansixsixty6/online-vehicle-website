@@ -2,8 +2,10 @@ import React from 'react'
 import MyContext from './MyContext'
 import { useState,useEffect } from 'react'
 import { Timestamp, addDoc, collection, deleteDoc, doc, onSnapshot, orderBy, query, setDoc,getDocs } from 'firebase/firestore';
-import { fireDB } from '../utils/firebase';
+import { fireDB ,firebaseStorage } from '../utils/firebase';
 import {toast} from "react-toastify"
+ 
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 
 
@@ -15,7 +17,7 @@ const MyState = (props) => {
     title: null,
     price: null,
 
-    imageUrl: [], // empty arrray
+    imageUrls: [], // empty arrray
     category: null,
     fuelType: null,
     gearType:null,
@@ -65,22 +67,40 @@ const MyState = (props) => {
     // if (vehicles.title == null || vehicles.price == null || vehicles.category == null || vehicles.description == null) {
     //   return toast.error('Please fill all fields')
     // }
-    const productRef = collection(fireDB, "vehicles")
+    // const productRef = collection(fireDB, "vehicles")
     setLoading(true)
     try {
-      await addDoc(productRef, vehicles)
-      toast.success("Vehicle Added successfully")
-      setTimeout(() => {
-        window.location.href = "/admin"
-      }, 800);
-      getVehicleData()
-      setLoading(false)
-    } catch (error) {
-      console.log(error)
-      setLoading(false)
-    }
-    setVehicles('')
-  }
+
+
+      const imageUrls = await Promise.all(
+        vehicles.imageUrls.map(async (imageUrl) => {
+            const file = new File([], 'dummy'); // Replace with your actual file
+            const storageRef = ref(firebaseStorage, `images/${file.name}`);
+            await uploadBytes(storageRef, file);
+            return getDownloadURL(storageRef);
+        })
+    );
+    const productRef = collection(fireDB, 'vehicles');
+            const docRef = await addDoc(productRef, {
+                ...vehicles,
+                imageUrls: imageUrls,
+     
+              });
+
+              toast.success('Vehicle Added successfully');
+              setTimeout(() => {
+                  window.location.href = '/admin';
+              }, 800);
+              getVehicleData();
+              setLoading(false);
+          } catch (error) {
+              console.error(error);
+              setLoading(false);
+          }
+          setVehicles({
+             
+          });
+      };
 
   const [vehicle, setVehicle] = useState([]);
 

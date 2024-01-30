@@ -1,26 +1,35 @@
 import React, { useContext } from 'react'
 import MyContext from '../../context/MyContext';
-
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 
 const AddVehicle = () => {
   const context = useContext(MyContext);
   const {vehicles,setVehicles,addVehicle} = context;
+  const { firebaseStorage } = context;
 
 
-  const handleImageChange = (e) => {
+  const handleImageChange = async (e) => {
     const selectedFiles = e.target.files;
 
     const imageUrls = [];
     for (let i = 0; i < selectedFiles.length; i++) {
-      const imageUrl = URL.createObjectURL(selectedFiles[i]);
-      imageUrls.push(imageUrl);
+        const file = selectedFiles[i];
+
+        // Upload file to Firebase Storage
+        const storageRef = ref(firebaseStorage, `images/${file.name}`);
+        await uploadBytes(storageRef, file);
+
+        // Get the download URL of the uploaded file
+        const downloadURL = await getDownloadURL(storageRef);
+        imageUrls.push(downloadURL);
     }
+
     setVehicles((prevVehicles) => ({
         ...prevVehicles,
         imageUrls: imageUrls,
-      }));
-  };
+    }));
+};
 
   return (
     <div>
